@@ -20,6 +20,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="login-container">
+            <Logo />
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <label>
@@ -30,14 +31,14 @@ const LoginPage: React.FC = () => {
                         <option value="admin">Администратор</option>
                         <option value="restaurant">Ресторан</option>
                     </select>
-                </label> <br/>
+                </label> <br />
                 <label>
                     Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                </label> <br/>
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                </label> <br />
                 <label>
                     Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </label>
                 <button type="submit">Login</button>
             </form>
