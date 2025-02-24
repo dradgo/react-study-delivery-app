@@ -1,0 +1,60 @@
+/* Client Orders Page Styles */
+
+.orders-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.orders-list {
+    list-style: none;
+    padding: 0;
+}
+
+.order-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item strong {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.status.delivered {
+    background: #28a745;
+    color: white;
+}
+
+.status.in-progress {
+    background: #ffc107;
+    color: black;
+}
+
+.status.pending {
+    background: #dc3545;
+    color: white;
+}

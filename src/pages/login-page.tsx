@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './login-page.css';
 
 const LoginPage: React.FC = () => {
-    const [userType, setUserType] = useState('Client');
+    const [userType, setUserType] = useState('client');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
