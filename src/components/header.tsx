@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import './header.scss';
+import {useUser} from "../context/user-context";
 
 const Header: React.FC = () => {
-    const [userType, setUserType] = useState('none');
+    const { userType, setUserType } = useUser();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const storedUserType = localStorage.getItem('userType');
-        if (storedUserType) {
-            setUserType(storedUserType);
-        }
-    }, []);
     const handleLogout = () => {
         localStorage.removeItem('userType');
-        setUserType('');
+        setUserType('none');
         navigate('/login');
     };
+    console.log(userType);
     return (
         <header className="header">
             <div className="logo">
@@ -24,7 +20,7 @@ const Header: React.FC = () => {
             </div>
             <nav className="nav">
                 <ul>
-                    {userType === 'client' && (
+                    {(userType === 'client' || userType === 'Client') && (
                         <>
                             <li><Link to="/home">Home</Link></li>
                             <li><Link to="/cart">Cart</Link></li>

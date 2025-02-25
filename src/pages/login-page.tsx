@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login-page.css';
+import {useUser} from "../context/user-context";
 
 const LoginPage: React.FC = () => {
-    const [userType, setUserType] = useState('client');
+    const { setUserType } = useUser();
+    const [userType, setUserTypeLocal] = useState('Client');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -12,6 +14,7 @@ const LoginPage: React.FC = () => {
         e.preventDefault();
         console.log(`Logging in as ${userType} with email: ${email}`);
         localStorage.setItem('userType', userType);
+        setUserType(userType);
         navigate(`/home/${userType}`);
     };
 
@@ -21,7 +24,7 @@ const LoginPage: React.FC = () => {
             <form onSubmit={handleLogin}>
                 <label>
                     User Type:
-                    <select value={userType} onChange={(e) => setUserType(e.target.value)}>
+                    <select value={userType} onChange={(e) => setUserTypeLocal(e.target.value)}>
                         <option value="client">Клиент</option>
                         <option value="courier">Курьер</option>
                         <option value="admin">Администратор</option>
