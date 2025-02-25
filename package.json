@@ -20,10 +20,18 @@
   "devDependencies": {
     "ts-loader": "^9.5.2",
     "typescript": "^5.7.3",
+    "sass": "^1.64.0",
+    "sass-loader": "^14.1.0",
+    "style-loader": "^3.3.3",
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6",
     "webpack": "5.94.0",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1",
     "webpack-merge": "5.9.0"
+  },
+  "resolutions": {
+    "sass-loader": "^14.1.0"
   },
   "scripts": {
     "start": "webpack serve --config config/webpack.config.js --mode development --open",
