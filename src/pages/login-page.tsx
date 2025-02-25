@@ -11,6 +11,7 @@ const LoginPage: React.FC = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         console.log(`Logging in as ${userType} with email: ${email}`);
+        localStorage.setItem('userType', userType);
         navigate(`/home/${userType}`);
     };
 
