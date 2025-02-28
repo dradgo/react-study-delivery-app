@@ -1,5 +1,7 @@
 /* Header Styles */
 
+@use "sass:math";
+
 .header {
   display: flex;
   justify-content: space-between;

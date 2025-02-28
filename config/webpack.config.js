@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
             static: path.resolve(__dirname, 'dist'),
             hot: true,
             historyApiFallback: true,
-            port: 3000,
+            port: 9000,
         },
         module: {
             rules: [
@@ -33,7 +33,12 @@ module.exports = (env, argv) => {
                 },
                 {
                     test: /\.scss$/i,
-                    use: [isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader']
+                    use: [isProduction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', {
+                        loader: 'sass-loader',
+                        options: {
+                            api: "modern-compiler"
+                        }
+                    }]
                 },
                 {
                     test: /\.svg$/,
