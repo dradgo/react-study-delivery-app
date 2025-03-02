@@ -4,6 +4,7 @@ const UserContext = createContext<any>(null);
 
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [userType, setUserType] = useState(localStorage.getItem('userType') || 'none');
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         const handleStorageChange = () => {
@@ -14,7 +15,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, []);
 
     return (
-        <UserContext.Provider value={{ userType, setUserType }}>
+        <UserContext.Provider value={{ userType, setUserType,  cart, setCart  }}>
             {children}
         </UserContext.Provider>
     );

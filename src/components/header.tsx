@@ -22,9 +22,10 @@ const Header: React.FC = () => {
                 <ul>
                     {(userType === 'client' || userType === 'Client') && (
                         <>
-                            <li><Link to="/home">Home</Link></li>
-                            <li><Link to="/cart">Cart</Link></li>
-                            <li><Link to="/profile">Profile</Link></li>
+                            <li><Link to="/client/restraunt">Restaurants</Link></li>
+                            <li><Link to="/client/cart">Cart</Link></li>
+                            <li><Link to="/client/orders">Orders</Link></li>
+                            <li><Link to="/client/profile">Profile</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
                     {userType === 'courier' && (
                         <>
                             <li><Link to="/courier/orders">Orders</Link></li>
-                            <li><Link to="/profile">Profile</Link></li>
+                            <li><Link to="/courier/profile">Profile</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -43,7 +44,7 @@ const Header: React.FC = () => {
                         <>
                             <li><Link to="/restaurant/dashboard">Dashboard</Link></li>
                             <li><Link to="/restaurant/orders">Orders</Link></li>
-                            <li><Link to="/profile">Profile</Link></li>
+                            <li><Link to="/restaurant/profile">Profile</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
