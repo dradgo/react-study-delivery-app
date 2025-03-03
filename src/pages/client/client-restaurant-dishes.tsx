@@ -37,10 +37,10 @@ const RestaurantDishesPage: React.FC = () => {
             const existingItem = prevCart.find((item : any) => item.id === dish.id);
             if (existingItem) {
                 return prevCart.map((item : any) =>
-                    item.id === dish.id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === dish.id ? { ...item, amount: item.amount + 1 } : item
                 );
             } else {
-                return [...prevCart, { ...dish, quantity: 1 }];
+                return [...prevCart, { ...dish, amount: 1 }];
             }
         });
     };
@@ -49,10 +49,10 @@ const RestaurantDishesPage: React.FC = () => {
         setCart((prevCart : any) => prevCart.filter((item : any) => item.id !== dishId));
     };
 
-    const handleChangeQuantity = ({dishId, amount}: { dishId: any, amount: any }) => {
+    const handleChangeamount = ({dishId, amount}: { dishId: any, amount: any }) => {
         setCart((prevCart : any) =>
             prevCart.map((item : any) =>
-                item.id === dishId ? { ...item, quantity: Math.max(1, item.quantity + amount) } : item
+                item.id === dishId ? { ...item, amount: Math.max(1, item.amount + amount) } : item
             )
         );
     };
@@ -73,9 +73,9 @@ const RestaurantDishesPage: React.FC = () => {
                                 <p>Protein: {dish.nutrition.protein}, Calories: {dish.nutrition.calories}</p>
                                 {cartItem ? (
                                     <div className="cart-controls">
-                                        <button onClick={() => handleChangeQuantity({dishId: dish.id, amount: -1})}>-</button>
-                                        <span>{cartItem.quantity}</span>
-                                        <button onClick={() => handleChangeQuantity({dishId: dish.id, amount: 1})}>+</button>
+                                        <button onClick={() => handleChangeamount({dishId: dish.id, amount: -1})}>-</button>
+                                        <span>{cartItem.amount}</span>
+                                        <button onClick={() => handleChangeamount({dishId: dish.id, amount: 1})}>+</button>
                                         <button onClick={() => handleRemoveFromCart({dishId: dish.id})} className="remove-button">Remove</button>
                                     </div>
                                 ) : (

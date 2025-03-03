@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { CartItem, UsersType } from '../types/types';
 
-type UsersType = 'client' | 'restaurant' | 'courier' | 'admin' | 'none' | ''
+
 type UserContextProviderType = {
     userType: UsersType;
-    cart: any[]
+    cart: CartItem[]
     setUserType: Function
     setCart: Function
     credentials?: {
