@@ -1,5 +1,6 @@
 import React from 'react';
 import './client-orders.css';
+import { Order } from '../../components/order/order';
 
 const orders = [
     { id: 1, restaurant: 'Pizza Place', total: '$20.99', status: 'Delivered' },
@@ -14,11 +15,7 @@ const ClientOrdersPage: React.FC = () => {
             <ul className="orders-list">
                 {orders.map(order => (
                     <li key={order.id} className="order-item">
-                        <div>
-                            <strong>{order.restaurant}</strong>
-                            <p>Total: {order.total}</p>
-                            <p>Status: <span className={`status ${order.status.toLowerCase()}`}>{order.status}</span></p>
-                        </div>
+                        <Order order={order} />
                     </li>
                 ))}
             </ul>

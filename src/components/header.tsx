@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './header.scss';
-import {useUser} from "../context/user-context";
+import { useUser } from "../context/user-context";
 
 const Header: React.FC = () => {
     const { userType, setUserType } = useUser();
