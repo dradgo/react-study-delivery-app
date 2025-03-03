@@ -4,6 +4,9 @@
 
 .header {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
   background: #343a40;
@@ -32,9 +35,6 @@
     margin: 0;
     padding: 0;
   }
-  li {
-    display: inline;
-  }
   a {
     color: white;
     text-decoration: none;
@@ -58,4 +58,9 @@
   &:hover {
     background: #c82333;
   }
+}
+
+.header_link {
+  display: flex;
+  align-items: center;
 }

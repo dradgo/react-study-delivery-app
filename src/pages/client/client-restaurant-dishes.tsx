@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import {useUser} from "../../context/user-context";
 import './client-restaurant-dishes.scss'
+import { Wrapper } from '../../components/wrapper/wrapper';
 
 const dishes = [
     {
@@ -57,7 +58,7 @@ const RestaurantDishesPage: React.FC = () => {
     };
 
     return (
-        <div className="dishes-container">
+        <Wrapper>
             <h2>{restaurantName} Dishes</h2>
             <ul className="dishes-list">
                 {dishes.map((dish) => {
@@ -85,7 +86,7 @@ const RestaurantDishesPage: React.FC = () => {
                     );
                 })}
             </ul>
-        </div>
+        </Wrapper>
     );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useUser} from "../../context/user-context";
 import './client-cart.scss'
+import { Wrapper } from '../../components/wrapper/wrapper';
 
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
@@ -28,7 +29,7 @@ const ClientCartPage: React.FC = () => {
     };
 
     return (
-        <div className="cart-container">
+        <Wrapper>
             <h2>Your Cart</h2>
             {cart.length === 0 ? (
                 <p>Your cart is empty</p>
@@ -65,7 +66,7 @@ const ClientCartPage: React.FC = () => {
                     <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
                 </>
             )}
-        </div>
+        </Wrapper>
     );
 };
 

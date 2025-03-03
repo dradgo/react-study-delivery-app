@@ -1,15 +1,6 @@
 /* Courier Orders Page Styles */
 @use "sass:math";
 
-.courier-orders-container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 h2 {
   text-align: center;
   color: #333;
@@ -59,12 +50,4 @@ h2 {
     background: #28a745;
     color: white;
   }
-}
-
-select {
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background: #f8f9fa;
 }

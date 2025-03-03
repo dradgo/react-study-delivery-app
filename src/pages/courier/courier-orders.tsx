@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './courier-orders.scss';
+import { Wrapper } from '../..//components/wrapper/wrapper';
 
 const initialOrders = [
     { id: 1, restaurant: 'Pizza Place, 234 Side st', address: '123 Main St', status: 'Pending' },
@@ -19,7 +20,7 @@ const CourierOrdersPage: React.FC = () => {
     };
 
     return (
-        <div className="courier-orders-container">
+        <Wrapper>
             <h2>Courier Orders</h2>
             <ul className="orders-list">
                 {orders.map(order => (
@@ -42,7 +43,7 @@ const CourierOrdersPage: React.FC = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Wrapper>
     );
 };
 

@@ -20,12 +20,12 @@ const Header: React.FC = () => {
             </div>
             <nav className="nav">
                 <ul>
-                    {(userType === 'client' || userType === 'Client') && (
+                    {(userType.toLocaleLowerCase() === 'client') && (
                         <>
-                            <li><Link to="/client/restraunt">Restaurants</Link></li>
-                            <li><Link to="/client/cart">Cart</Link></li>
-                            <li><Link to="/client/orders">Orders</Link></li>
-                            <li><Link to="/client/profile">Profile</Link></li>
+                            <li className='header_link'><Link to="/client/restraunt">Restaurants</Link></li>
+                            <li className='header_link'><Link to="/client/cart">Cart</Link></li>
+                            <li className='header_link'><Link to="/client/orders">Orders</Link></li>
+                            <li className='header_link'><Link to="/client/profile">Profile</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -33,8 +33,8 @@ const Header: React.FC = () => {
                     )}
                     {userType === 'courier' && (
                         <>
-                            <li><Link to="/courier/orders">Orders</Link></li>
-                            <li><Link to="/courier/profile">Profile</Link></li>
+                            <li className='header_link'><Link to="/courier/orders">Orders</Link></li>
+                            <li className='header_link'><Link to="/courier/profile">Profile</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -42,20 +42,20 @@ const Header: React.FC = () => {
                     )}
                     {userType === 'restaurant' && (
                         <>
-                            <li><Link to="/restaurant/dashboard">Dashboard</Link></li>
-                            <li><Link to="/restaurant/orders">Orders</Link></li>
-                            <li><Link to="/restaurant/profile">Profile</Link></li>
-                            <li>
+                            <li className='header_link'><Link to="/restaurant/dashboard">Dashboard</Link></li>
+                            <li className='header_link'><Link to="/restaurant/orders">Orders</Link></li>
+                            <li className='header_link'><Link to="/restaurant/profile">Profile</Link></li>
+                            <li className='header_link'>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
                         </>
                     )}
                     {userType === 'admin' && (
                         <>
-                            <li><Link to="/admin/dashboard">Dashboard</Link></li>
-                            <li><Link to="/admin/users">Users</Link></li>
-                            <li><Link to="/admin/restaurants">Restaurants</Link></li>
-                            <li><Link to="/admin/delivery">Delivery</Link></li>
+                            <li className='header_link'><Link to="/admin/dashboard">Dashboard</Link></li>
+                            <li className='header_link'><Link to="/admin/users">Users</Link></li>
+                            <li className='header_link'><Link to="/admin/restaurants">Restaurants</Link></li>
+                            <li className='header_link'><Link to="/admin/delivery">Delivery</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -63,8 +63,8 @@ const Header: React.FC = () => {
                     )}
                     {userType === 'none' && (
                         <>
-                            <li><Link to="/login">Login</Link></li>
-                            <li><Link to="/register">Register</Link></li>
+                            <li className='header_link'><Link to="/login">Login</Link></li>
+                            <li className='header_link'><Link to="/register">Register</Link></li>
                         </>
                     )}
                 </ul>

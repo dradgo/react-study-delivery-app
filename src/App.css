@@ -1,3 +1,8 @@
+.main-container {
+  min-height: 100vh;
+  padding-top: 36px;
+}
+
 .App {
   text-align: center;
 }
@@ -37,7 +42,6 @@
   }
 }
 
-
 .btn {
   padding: 10px 20px;
   font-size: 1rem;
@@ -65,4 +69,3 @@
 .btn-secondary:hover {
   background-color: #5a6268;
 }
-

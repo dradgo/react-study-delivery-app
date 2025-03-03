@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './client-restaurants.scss';
+import { Wrapper } from '../../components/wrapper/wrapper';
 
 const restaurants = [
     {
@@ -37,7 +38,7 @@ const ClientRestaurantsPage: React.FC = () => {
     };
 
     return (
-        <div className="restaurants-container">
+        <Wrapper>
             <h2>Restaurants</h2>
             <ul className="restaurants-list">
                 {restaurants.map((restaurant) => (
@@ -55,7 +56,7 @@ const ClientRestaurantsPage: React.FC = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Wrapper>
     );
 };
 
