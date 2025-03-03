@@ -20,7 +20,6 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="login-container">
-            <Logo />
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <label>
