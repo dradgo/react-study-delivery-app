@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login-page.css';
 import { useUser } from "../context/user-context";
+import Input from '../components/input/input';
+import EmailIcon from '../../public/icons/email-svgrepo-com.svg';
 
 const LoginPage: React.FC = () => {
     const { setUserType } = useUser();
@@ -31,14 +33,9 @@ const LoginPage: React.FC = () => {
                         <option value="restaurant">Ресторан</option>
                     </select>
                 </label> <br />
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                </label> <br />
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </label>
+
+                <Input icon={<EmailIcon />} placeholder='Почта' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                <Input placeholder='Пароль' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Login</button>
             </form>
         </div>

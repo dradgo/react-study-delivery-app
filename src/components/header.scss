@@ -1,6 +1,8 @@
 /* Header Styles */
 
 @use "sass:math";
+@use "sass:color";
+@use "../styles/colors.scss" as *;
 
 .header {
   display: flex;
@@ -9,7 +11,7 @@
   z-index: 100;
   justify-content: space-between;
   align-items: center;
-  background: #343a40;
+  background: $secondary-color;
   color: white;
   padding: 15px 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -36,13 +38,16 @@
     padding: 0;
   }
   a {
-    color: white;
+    color: $primary-text-color;
+    background: $primary-color;
+    border-radius: 12px;
     text-decoration: none;
     font-size: 1rem;
     padding: 10px;
+    transition: background 0.3s;
+
     &:hover {
-      background: #495057;
-      border-radius: 5px;
+      background-color: color.adjust($primary-color, $lightness: -10%);
     }
   }
 }

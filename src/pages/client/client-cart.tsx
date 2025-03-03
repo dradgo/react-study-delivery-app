@@ -3,6 +3,7 @@ import { useUser } from "../../context/user-context";
 import './client-cart.scss'
 import { Wrapper } from '../../components/wrapper/wrapper';
 
+
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
     const [address, setAddress] = useState('');

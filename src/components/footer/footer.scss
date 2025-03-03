@@ -1,7 +1,8 @@
 /* Footer Styles */
+@use "../../styles/colors.scss" as *;
 
 .footer {
-  background: #343a40;
+  background: $secondary-color;
   color: white;
   text-align: center;
   padding: 15px 0;
