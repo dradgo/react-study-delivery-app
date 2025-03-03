@@ -56,6 +56,13 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource', // Use asset/resource for Webpack 5
+          generator: {
+            filename: 'fonts/[name][ext]', // Output fonts to the 'fonts' directory
+          },
+        },
       ],
     },
     resolve: {

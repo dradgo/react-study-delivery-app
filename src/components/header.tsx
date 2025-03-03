@@ -22,10 +22,10 @@ const Header: React.FC = () => {
                 <ul>
                     {(userType.toLocaleLowerCase() === 'client') && (
                         <>
-                            <li className='header_link'><Link to="/client/restraunt">Restaurants</Link></li>
-                            <li className='header_link'><Link to="/client/cart">Cart</Link></li>
-                            <li className='header_link'><Link to="/client/orders">Orders</Link></li>
-                            <li className='header_link'><Link to="/client/profile">Profile</Link></li>
+                            <li className='header_link'><Link to="/client/restraunt">Рестораны</Link></li>
+                            <li className='header_link'><Link to="/client/cart">Корзина</Link></li>
+                            <li className='header_link'><Link to="/client/orders">Заказы</Link></li>
+                            <li className='header_link'><Link to="/client/profile">Профиль</Link></li>
                             <li>
                                 <button onClick={handleLogout} className="logout-button">Logout</button>
                             </li>
@@ -33,38 +33,38 @@ const Header: React.FC = () => {
                     )}
                     {userType === 'courier' && (
                         <>
-                            <li className='header_link'><Link to="/courier/orders">Orders</Link></li>
-                            <li className='header_link'><Link to="/courier/profile">Profile</Link></li>
+                            <li className='header_link'><Link to="/courier/orders">Заказы</Link></li>
+                            <li className='header_link'><Link to="/courier/profile">Профиль</Link></li>
                             <li>
-                                <button onClick={handleLogout} className="logout-button">Logout</button>
+                                <button onClick={handleLogout} className="logout-button">Выйти</button>
                             </li>
                         </>
                     )}
                     {userType === 'restaurant' && (
                         <>
-                            <li className='header_link'><Link to="/restaurant/dashboard">Dashboard</Link></li>
-                            <li className='header_link'><Link to="/restaurant/orders">Orders</Link></li>
-                            <li className='header_link'><Link to="/restaurant/profile">Profile</Link></li>
+                            <li className='header_link'><Link to="/restaurant/dashboard">Дашборд</Link></li>
+                            <li className='header_link'><Link to="/restaurant/orders">Заказы</Link></li>
+                            <li className='header_link'><Link to="/restaurant/profile">Профиль</Link></li>
                             <li className='header_link'>
-                                <button onClick={handleLogout} className="logout-button">Logout</button>
+                                <button onClick={handleLogout} className="logout-button">Выйти</button>
                             </li>
                         </>
                     )}
                     {userType === 'admin' && (
                         <>
-                            <li className='header_link'><Link to="/admin/dashboard">Dashboard</Link></li>
-                            <li className='header_link'><Link to="/admin/users">Users</Link></li>
-                            <li className='header_link'><Link to="/admin/restaurants">Restaurants</Link></li>
-                            <li className='header_link'><Link to="/admin/delivery">Delivery</Link></li>
+                            <li className='header_link'><Link to="/admin/dashboard">Дашборд</Link></li>
+                            <li className='header_link'><Link to="/admin/users">Пользователи</Link></li>
+                            <li className='header_link'><Link to="/admin/restaurants">Рестораны</Link></li>
+                            <li className='header_link'><Link to="/admin/delivery">Доставка</Link></li>
                             <li>
-                                <button onClick={handleLogout} className="logout-button">Logout</button>
+                                <button onClick={handleLogout} className="logout-button">Выход</button>
                             </li>
                         </>
                     )}
                     {userType === 'none' && (
                         <>
-                            <li className='header_link'><Link to="/login">Login</Link></li>
-                            <li className='header_link'><Link to="/register">Register</Link></li>
+                            <li className='header_link'><Link to="/login">Выход</Link></li>
+                            <li className='header_link'><Link to="/register">Регистрация</Link></li>
                         </>
                     )}
                 </ul>

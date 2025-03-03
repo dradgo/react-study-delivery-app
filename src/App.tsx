@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import WelcomePage from "./pages/welcome-page";
 import LoginPage from "./pages/login-page";
 import ClientOrders from "./pages/client/client-orders";
@@ -11,6 +10,8 @@ import ClientRestaurantsPage from "./pages/client/client-restaurants";
 import RestaurantDishesPage from "./pages/client/client-restaurant-dishes";
 import ClientCartPage from "./pages/client/client-cart";
 import { ClientProfile } from './pages/client/client-profile/client-profile';
+
+import './App.scss';
 
 function App() {
   return (

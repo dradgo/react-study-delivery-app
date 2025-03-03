@@ -19,10 +19,10 @@
 }
 
 .logo {
-  font-family: "Angelos", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   a {
+    font-family: "YSTextBold" !important;
     color: white;
     text-decoration: none;
     &:hover {
