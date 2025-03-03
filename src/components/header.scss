@@ -41,7 +41,7 @@
   }
   a {
     color: $primary-text-color;
-    background: $primary-color;
+    background: $accent-color;
     border-radius: 12px;
     text-decoration: none;
     font-size: 1rem;
@@ -55,13 +55,13 @@
 }
 
 .logout-button {
-  background: #dc3545;
+  background: $error-color;
   color: white;
   border: none;
   padding: 10px 15px;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 12px;
   &:hover {
     background: #c82333;
   }

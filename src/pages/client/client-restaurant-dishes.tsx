@@ -65,7 +65,7 @@ const RestaurantDishesPage: React.FC = () => {
                     const cartItem = cart.find((item : any) => item.id === dish.id);
                     return (
                         <li key={dish.id} className="dish-item">
-                            <img src={dish.image} alt={dish.name} className="dish-image" />
+                            <img src={'https://eda.yandex/images/3518584/db43262c1df92b87520028722a558fba-400x400nocrop.jpeg'} alt={dish.name} className="dish-image" />
                             <div className="dish-info">
                                 <h3>{dish.name}</h3>
                                 <p>Price: {dish.price}</p>

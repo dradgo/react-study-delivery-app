@@ -43,7 +43,7 @@ const ClientRestaurantsPage: React.FC = () => {
             <ul className="restaurants-list">
                 {restaurants.map((restaurant) => (
                     <li key={restaurant.id} className="restaurant-item">
-                        <img src={restaurant.logo} alt={restaurant.name} className="restaurant-logo" />
+                        <img src={'https://eda.yandex/images/3709189/b8ccc4b8b96de76f32cea0cd7d83650b-1100x825.jpeg'} alt={restaurant.name} className="restaurant-logo" />
                         <div className="restaurant-info">
                             <h3>{restaurant.name}</h3>
                             <p>Address: {restaurant.address}</p>
