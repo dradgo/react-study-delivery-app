@@ -1,33 +1,30 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './login-page.css';
 import { useUser } from "../context/user-context";
 import Input from '../components/input/input';
 import EmailIcon from '../../public/icons/email-svgrepo-com.svg';
 import PasswordIcon from '../../public/icons/password-icon.svg';
+import { UsersType } from '../types/types';
+
+import './login-page.css';
 
 const LoginPage: React.FC = () => {
-    const { setUserType } = useUser();
-    const [userType, setUserTypeLocal] = useState('client');
+    const { login } = useUser();
+    const [userType, setUserTypeLocal] = useState<UsersType>('client');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(`Logging in as ${userType} with email: ${email}`);
-        localStorage.setItem('userType', userType);
-        setUserType(userType);
-        navigate(`/home/${userType}`);
+        login(userType)
     };
-
+    
     return (
         <div className="login-container">
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <label>
                     User Type:
-                    <select value={userType} onChange={(e) => setUserTypeLocal(e.target.value)}>
+                    <select value={userType} onChange={(e) => setUserTypeLocal(e.target.value as UsersType)}>
                         <option value="client">Клиент</option>
                         <option value="courier">Курьер</option>
                         <option value="admin">Администратор</option>

@@ -10,27 +10,33 @@ import ClientRestaurantsPage from "./pages/client/client-restaurants";
 import RestaurantDishesPage from "./pages/client/client-restaurant-dishes";
 import ClientCartPage from "./pages/client/client-cart";
 import { ClientProfile } from './pages/client/client-profile/client-profile';
+import { INTERNAL_ROUTES } from './constants/links';
+import { UserProvider } from "./context/user-context";
 
 import './App.scss';
+
 function App() {
   return (
     <Router>
-      <Header />
-      <main className='main-container'>
-        <Routes>
-          {/* Customer Pages */}
-          <Route path="/" element={<WelcomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/home/client" element={<ClientOrders />} />
-          <Route path="/home/courier" element={<CourierOrders />} />
-          <Route path="/client/orders" element={<CourierOrders />} />
-          <Route path="/client/restraunt" element={<ClientRestaurantsPage />} />
-          <Route path="/client/profile" element={<ClientProfile />} />
-          <Route path="/client/cart" element={<ClientCartPage />} />
-          <Route path="/client/restaurant/:restaurantName/dishes" element={<RestaurantDishesPage />} />
-        </Routes>
-      </main>
-      <Footer />
+      <UserProvider>
+        <Header />
+        <main className='main-container'>
+          <Routes>
+
+            {/* Customer Pages */}
+            <Route path={INTERNAL_ROUTES.general} element={<WelcomePage />} />
+            <Route path={INTERNAL_ROUTES.login} element={<LoginPage />} />
+            <Route path={INTERNAL_ROUTES.clientOrders} element={<ClientOrders />} />
+            <Route path={INTERNAL_ROUTES.courierOrders} element={<CourierOrders />} />
+            <Route path={INTERNAL_ROUTES.clientOrders} element={<CourierOrders />} />
+            <Route path={INTERNAL_ROUTES.clientRestaurant} element={<ClientRestaurantsPage />} />
+            <Route path={INTERNAL_ROUTES.clientProfile} element={<ClientProfile />} />
+            <Route path={INTERNAL_ROUTES.clientCart} element={<ClientCartPage />} />
+            <Route path={`${INTERNAL_ROUTES.restaurantDishes}/:restaurantName/dishes`} element={<RestaurantDishesPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </UserProvider>
     </Router>
   );
 }

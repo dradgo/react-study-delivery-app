@@ -6,7 +6,7 @@ type MenuItemsProps = {
   onClick: () => void;
 };
 
-export const menuItems: Record<UsersType, (props: MenuItemsProps) => ReactNode> = {
+export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => ReactNode> = {
   client: ({ onClick }) => (
     <>
       <li className='header_link'><Link to="/client/restraunt">Рестораны</Link></li>
