@@ -5,14 +5,13 @@ import LoginPage from "./pages/login-page";
 import ClientOrders from "./pages/client/client-orders";
 import CourierOrders from "./pages/courier/courier-orders";
 import Footer from "./components/footer/footer";
-import Header from "./components/header";
+import Header from "./components/header/header";
 import ClientRestaurantsPage from "./pages/client/client-restaurants";
 import RestaurantDishesPage from "./pages/client/client-restaurant-dishes";
 import ClientCartPage from "./pages/client/client-cart";
 import { ClientProfile } from './pages/client/client-profile/client-profile';
 
 import './App.scss';
-
 function App() {
   return (
     <Router>

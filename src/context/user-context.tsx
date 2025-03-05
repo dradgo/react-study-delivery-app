@@ -13,7 +13,7 @@ type UserContextProviderType = {
     }
 }
 const UserContext = createContext<UserContextProviderType>({
-    userType: '',
+    userType: 'none',
     cart: [],
     setUserType: () => { },
     setCart: () => { }

@@ -1,13 +1,13 @@
 // Основные цвета
-$primary-color: #FF5733; // Ярко-красный 
-$secondary-color: #FFC300; // Ярко-оранжевый 
-$accent-color: #2ECC71; // Зеленый 
+$primary-color: #ff5733; // Ярко-красный
+$secondary-color: #ffc300; // Ярко-оранжевый
+$accent-color: #2ecc71; // Зеленый
 
 // Нейтральные цвета
-$background-color: #FFFFFF; // Белый 
-$text-primary-color: #333333; // Темно-серый 
-$text-secondary-color: #666666; // Серый 
-$border-color: #E0E0E0; // Светло-серый 
+$background-color: #ffffff; // Белый
+$text-primary-color: #333333; // Темно-серый
+$text-secondary-color: #666666; // Серый
+$border-color: #e0e0e0; // Светло-серый
 
 // Цвета кнопок
 $button-primary-bg: $primary-color; // Фон основной кнопки
@@ -16,13 +16,15 @@ $button-secondary-bg: $secondary-color; // Фон вторичной кнопк�
 $button-secondary-text: $background-color; // Текст вторичной кнопки
 
 // Цвета состояний
-$success-color: #2ECC71; // Успешное действие 
-$error-color: #E74C3C; // Ошибка 
-$warning-color: #FFA500; // Предупреждение 
-$info-color: #3498DB; // Информация 
+$success-color: #2ecc71; // Успешное действие
+$error-color: #e74c3c; // Ошибка
+$warning-color: #ffa500; // Предупреждение
+$info-color: #3498db; // Информация
 
 // Цвета фона элементов
-$card-background: #FAFAFA; // Карточки товаров
+$card-background: #fafafa; // Карточки товаров
 $modal-background: rgba(0, 0, 0, 0.5); // Фон модального окна
 
 $primary-text-color: white;
+
+$primary-boder-radius: 12px;

@@ -2,6 +2,10 @@
 @use "./styles/colors.scss" as *;
 @use "./styles/fonts.scss" as *;
 
+#root {
+  position: relative;
+}
+
 * {
   font-family: "YSText", sans-serif;
 }
@@ -36,7 +40,7 @@ select {
   margin-top: 5px;
   padding: 5px;
   font-size: 1rem;
-  border-radius: 12px;
+  border-radius: $primary-boder-radius;
   border: 1px solid #ccc;
   background: white;
 }
@@ -49,7 +53,7 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s;
-  border-radius: 12px;
+  border-radius: $primary-boder-radius;
 
   &:hover {
     background-color: color.adjust($primary-color, $lightness: -10%);

@@ -2,8 +2,8 @@
 
 @use "sass:math";
 @use "sass:color";
-@use "../styles/colors.scss" as *;
-@use "../styles/fonts.scss" as *;
+@use "/src/styles/colors.scss" as *;
+@use "/src/styles/fonts.scss" as *;
 
 .header {
   display: flex;
@@ -40,16 +40,16 @@
     padding: 0;
   }
   a {
-    color: $primary-text-color;
-    background: $accent-color;
-    border-radius: 12px;
+    color: $text-primary-color;
+    background: $background-color;
+    border-radius: $primary-boder-radius;
     text-decoration: none;
     font-size: 1rem;
     padding: 10px;
     transition: background 0.3s;
 
     &:hover {
-      background-color: color.adjust($primary-color, $lightness: -10%);
+      background-color: color.adjust($text-primary-color, $lightness: 70%);
     }
   }
 }
@@ -61,7 +61,7 @@
   padding: 10px 15px;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: $primary-boder-radius;
   &:hover {
     background: #c82333;
   }

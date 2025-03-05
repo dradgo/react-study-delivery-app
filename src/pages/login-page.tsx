@@ -4,10 +4,11 @@ import './login-page.css';
 import { useUser } from "../context/user-context";
 import Input from '../components/input/input';
 import EmailIcon from '../../public/icons/email-svgrepo-com.svg';
+import PasswordIcon from '../../public/icons/password-icon.svg';
 
 const LoginPage: React.FC = () => {
     const { setUserType } = useUser();
-    const [userType, setUserTypeLocal] = useState('Client');
+    const [userType, setUserTypeLocal] = useState('client');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ const LoginPage: React.FC = () => {
                 </label> <br />
 
                 <Input icon={<EmailIcon />} placeholder='Почта' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <Input placeholder='Пароль' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <Input icon={<PasswordIcon />} placeholder='Пароль' type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Login</button>
             </form>
         </div>
