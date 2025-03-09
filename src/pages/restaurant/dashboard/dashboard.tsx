@@ -61,7 +61,7 @@ const Dashboard: React.FC = () => {
                     <FilterToggle
                         options={timeFilterOptions}
                         selected={timeRange}
-                        onSelect={(value) => setTimeRange(value)}
+                        onSelect={setTimeRange}
                         label="Период"
                         variant="primary"
                     />
@@ -101,9 +101,8 @@ const Dashboard: React.FC = () => {
                         <p>{stats.totalRevenue} ₽</p>
                     </div>
                 </div>
-
                 <div className="dashboard__orders">
-                    <h2 className="dashboard__subtitle">Последние заказы</h2>
+                    <h2 className="dashboard__title">Последние заказы</h2>
                     <div className="dashboard__orders-list">
                         {filteredOrders.map((order) => (
                             <div key={order.id} className="dashboard__order-card">

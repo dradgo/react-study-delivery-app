@@ -27,14 +27,6 @@
         justify-content: flex-end;
     }
 
-    &--full-width {
-        width: 100%;
-
-        .filter-toggle__btn {
-            flex: 1;
-        }
-    }
-
     &--disabled {
         opacity: 0.6;
         pointer-events: none;

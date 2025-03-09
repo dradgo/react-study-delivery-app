@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
-import { useUser } from '../../context/user-context';
+import { useUser } from 'src/context/user-context';
+
 import { navigationBarOptions } from './navigation-bar-options';
 
 const Header: React.FC = () => {
@@ -9,12 +10,14 @@ const Header: React.FC = () => {
 
     return (
         <header className="header">
-            <div className="logo">
-                <Link to="/">Food Delivery</Link>
+            <div className="header__container">
+                <Link to="/" className="header__logo">
+                    Food Delivery
+                </Link>
+                <nav className="header__nav">
+                    {navigationBarOptions[userType]({ onClick: logout })}
+                </nav>
             </div>
-            <nav className="nav">
-                <ul>{navigationBarOptions[userType]({ onClick: logout })}</ul>
-            </nav>
         </header>
     );
 };

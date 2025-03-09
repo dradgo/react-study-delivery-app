@@ -26,7 +26,6 @@ function App() {
                 <Header />
                 <main className="main-container">
                     <Routes>
-                        {/* Customer Pages */}
                         <Route path={INTERNAL_ROUTES.general} element={<WelcomePage />} />
                         <Route path={INTERNAL_ROUTES.login} element={<LoginPage />} />
                         <Route path={INTERNAL_ROUTES.clientOrders} element={<ClientOrders />} />

@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { UsersType } from 'src/types/types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { INTERNAL_ROUTES } from 'src/constants/links';
+import './header.scss';
 
 type MenuItemsProps = {
     onClick: () => void;
@@ -11,16 +12,24 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     client: ({ onClick }) => (
         <>
             <li className="header_link">
-                <Link to="/client/restraunt">Рестораны</Link>
+                <NavLink to="/client/restraunt" className="header__link">
+                    Рестораны
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/client/cart">Корзина</Link>
+                <NavLink to="/client/cart" className="header__link">
+                    Корзина
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/client/orders">Заказы</Link>
+                <NavLink to="/client/orders" className="header__link">
+                    Заказы
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/client/profile">Профиль</Link>
+                <NavLink to="/client/profile" className="header__link">
+                    Профиль
+                </NavLink>
             </li>
             <li>
                 <button onClick={onClick} className="logout-button">
@@ -32,10 +41,14 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     courier: ({ onClick }) => (
         <>
             <li className="header_link">
-                <Link to="/courier/orders">Заказы</Link>
+                <NavLink to="/courier/orders" className="header__link">
+                    Заказы
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/courier/profile">Профиль</Link>
+                <NavLink to="/courier/profile" className="header__link">
+                    Профиль
+                </NavLink>
             </li>
             <li>
                 <button onClick={onClick} className="logout-button">
@@ -47,16 +60,24 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     restaurant: ({ onClick }) => (
         <>
             <li className="header_link">
-                <Link to="/restaurant/dashboard">Дашборд</Link>
+                <NavLink to="home/restaurant" className="header__link">
+                    Дашборд
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to={INTERNAL_ROUTES.restaurantManage}>Меню</Link>
+                <NavLink to={INTERNAL_ROUTES.restaurantManage} className="header__link">
+                    Меню
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/restaurant/orders">Заказы</Link>
+                <NavLink to="/restaurant/orders" className="header__link">
+                    Заказы
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/restaurant/profile">Профиль</Link>
+                <NavLink to="/restaurant/profile" className="header__link">
+                    Профиль
+                </NavLink>
             </li>
             <li>
                 <button onClick={onClick} className="logout-button">
@@ -68,16 +89,24 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     admin: ({ onClick }) => (
         <>
             <li className="header_link">
-                <Link to="/admin/dashboard">Дашборд</Link>
+                <NavLink to="/admin/dashboard" className="header__link">
+                    Дашборд
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/admin/users">Пользователи</Link>
+                <NavLink to="/admin/users" className="header__link">
+                    Пользователи
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/admin/restaurants">Рестораны</Link>
+                <NavLink to="/admin/restaurants" className="header__link">
+                    Рестораны
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/admin/orders">Доставка</Link>
+                <NavLink to="/admin/delivery" className="header__link">
+                    Доставка
+                </NavLink>
             </li>
             <li>
                 <button onClick={onClick} className="logout-button">
@@ -89,10 +118,14 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     none: () => (
         <>
             <li className="header_link">
-                <Link to="/login">Выход</Link>
+                <NavLink to="/login" className="header__link">
+                    Выход
+                </NavLink>
             </li>
             <li className="header_link">
-                <Link to="/register">Регистрация</Link>
+                <NavLink to="/register" className="header__link">
+                    Регистрация
+                </NavLink>
             </li>
         </>
     ),

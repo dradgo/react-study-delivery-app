@@ -10,7 +10,7 @@ export type UsersType = 'client' | 'restaurant' | 'courier' | 'admin' | 'none';
 
 export type TimeRange = 'day' | 'week' | 'month';
 
-export interface Order {
+export type Order = {
     id: number;
     customerName: string;
     items: string[];
@@ -18,4 +18,11 @@ export interface Order {
     status: OrderStatusType;
     createdAt: Date;
     duration: number;
-}
+};
+
+export type FilterOption = {
+    id: string | number;
+    label: string;
+    icon?: React.ReactNode;
+    value: any;
+};

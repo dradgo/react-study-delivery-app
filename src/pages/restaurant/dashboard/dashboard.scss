@@ -7,12 +7,7 @@
         font-size: 32px;
         color: $text-primary-color;
         margin-bottom: 24px;
-    }
-
-    &__subtitle {
-        font-size: 24px;
-        color: $text-primary-color;
-        margin: 32px 0 16px;
+        width: fit-content;
     }
 
     &__time-filter {
@@ -66,17 +61,22 @@
         }
     }
 
+    &__orders {
+        padding-top: 20px;
+    }
+
     &__orders-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 20px;
+        padding-top: 20px;
     }
 
     &__order-card {
         background: $background-color;
         border-radius: 12px;
         padding: 16px;
-        box-shadow: 0 2px 8px rgba($primary-color, 0.1);
+        box-shadow: 0 2px 8px rgba($text-primary-color, 0.1);
     }
 
     &__order-header {
@@ -140,5 +140,6 @@
         gap: 20px;
         margin-bottom: 30px;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 }

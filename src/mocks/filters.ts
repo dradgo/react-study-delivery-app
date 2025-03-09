@@ -1,4 +1,4 @@
-import { FilterOption } from 'src/components/filter-toggle/filter-toggle';
+import { FilterOption } from 'src/types/types';
 import { OrderStatus, OrderStatusText } from 'src/constants/order-status';
 import { AmountFilter, AmountFilterText } from 'src/constants/amount-filter';
 
