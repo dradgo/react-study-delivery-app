@@ -10,10 +10,12 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         socialId: '',
         name: '',
         description: '',
-        address: ''
+        address: '',
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -41,32 +43,117 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     <form onSubmit={handleSubmit}>
                         {userType === 'client' && (
                             <>
-                                <input type="text" name="firstName" placeholder="First Name" onChange={handleChange} required />
-                                <input type="text" name="lastName" placeholder="Last Name" onChange={handleChange} required />
-                                <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
-                                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+                                <input
+                                    type="text"
+                                    name="firstName"
+                                    placeholder="First Name"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="Last Name"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Phone"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    required
+                                />
                             </>
                         )}
                         {userType === 'courier' && (
                             <>
-                                <input type="text" name="firstName" placeholder="First Name" onChange={handleChange} required />
-                                <input type="text" name="lastName" placeholder="Last Name" onChange={handleChange} required />
-                                <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
-                                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                                <input type="text" name="socialId" placeholder="Social ID" onChange={handleChange} required />
+                                <input
+                                    type="text"
+                                    name="firstName"
+                                    placeholder="First Name"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="Last Name"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Phone"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="socialId"
+                                    placeholder="Social ID"
+                                    onChange={handleChange}
+                                    required
+                                />
                             </>
                         )}
                         {userType === 'restaurant' && (
                             <>
-                                <input type="text" name="name" placeholder="Restaurant Name" onChange={handleChange} required />
-                                <textarea name="description" placeholder="Description" onChange={handleChange} required></textarea>
-                                <input type="text" name="phone" placeholder="Phone" onChange={handleChange} required />
-                                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                                <input type="text" name="address" placeholder="Address" onChange={handleChange} required />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Restaurant Name"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <textarea
+                                    name="description"
+                                    placeholder="Description"
+                                    onChange={handleChange}
+                                    required
+                                ></textarea>
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Phone"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <input
+                                    type="text"
+                                    name="address"
+                                    placeholder="Address"
+                                    onChange={handleChange}
+                                    required
+                                />
                             </>
                         )}
                         <button type="submit">Register</button>
-                        <button type="button" onClick={onClose}>Cancel</button>
+                        <button type="button" onClick={onClose}>
+                            Cancel
+                        </button>
                     </form>
                 )}
             </div>

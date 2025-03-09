@@ -1,53 +1,53 @@
 /* Courier Orders Page Styles */
-@use "sass:math";
+@use 'sass:math';
 
 h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .orders-list {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .order-item {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .order-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .order-item strong {
-  font-size: 1.2rem;
-  color: #007bff;
+    font-size: 1.2rem;
+    color: #007bff;
 }
 
 .status {
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  text-transform: capitalize;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
 
-  &.pending {
-    background: #dc3545;
-    color: white;
-  }
+    &.pending {
+        background: #dc3545;
+        color: white;
+    }
 
-  &.in-progress {
-    background: #ffc107;
-    color: black;
-  }
+    &.in-progress {
+        background: #ffc107;
+        color: black;
+    }
 
-  &.delivered {
-    background: #28a745;
-    color: white;
-  }
+    &.delivered {
+        background: #28a745;
+        color: white;
+    }
 }

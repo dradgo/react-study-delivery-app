@@ -33,7 +33,8 @@ label {
     color: #6c757d;
 }
 
-input, select {
+input,
+select {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;

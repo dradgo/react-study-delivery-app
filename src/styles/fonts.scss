@@ -1,20 +1,20 @@
 @font-face {
-  font-family: "Angelos"; // Name of the font family
-  src: url("/public/fonts/Angelos.ttf") format("truetype"); // Path to the font file
-  font-weight: normal; // Specify the font weight (e.g., normal, bold)
-  font-style: normal; // Specify the font style (e.g., normal, italic)
+    font-family: 'Angelos'; // Name of the font family
+    src: url('/public/fonts/Angelos.ttf') format('truetype'); // Path to the font file
+    font-weight: normal; // Specify the font weight (e.g., normal, bold)
+    font-style: normal; // Specify the font style (e.g., normal, italic)
 }
 
 @font-face {
-  font-family: "YSText"; // Name of the font family
-  src: url("/public/fonts/YSText.woff2") format("truetype"); // Path to the font file
-  font-weight: normal; // Specify the font weight (e.g., normal, bold)
-  font-style: normal; // Specify the font style (e.g., normal, italic)
+    font-family: 'YSText'; // Name of the font family
+    src: url('/public/fonts/YSText.woff2') format('truetype'); // Path to the font file
+    font-weight: normal; // Specify the font weight (e.g., normal, bold)
+    font-style: normal; // Specify the font style (e.g., normal, italic)
 }
 
 @font-face {
-  font-family: "YSTextBold"; // Name of the font family
-  src: url("/public/fonts/YSTextBold.woff2") format("truetype"); // Path to the font file
-  font-weight: normal; // Specify the font weight (e.g., normal, bold)
-  font-style: normal; // Specify the font style (e.g., normal, italic)
+    font-family: 'YSTextBold'; // Name of the font family
+    src: url('/public/fonts/YSTextBold.woff2') format('truetype'); // Path to the font file
+    font-weight: normal; // Specify the font weight (e.g., normal, bold)
+    font-style: normal; // Specify the font style (e.g., normal, italic)
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useUser } from "../../context/user-context";
-import './client-restaurant-dishes.scss'
+import { useUser } from '../../context/user-context';
+import './client-restaurant-dishes.scss';
 import { Wrapper } from '../../components/wrapper/wrapper';
 import { dishesMock } from '../../mocks/dishes';
 
@@ -26,7 +26,7 @@ const RestaurantDishesPage: React.FC = () => {
         setCart((prevCart: any) => prevCart.filter((item: any) => item.id !== dishId));
     };
 
-    const handleChangeamount = ({ dishId, amount }: { dishId: any, amount: any }) => {
+    const handleChangeamount = ({ dishId, amount }: { dishId: any; amount: any }) => {
         setCart((prevCart: any) =>
             prevCart.map((item: any) =>
                 item.id === dishId ? { ...item, amount: Math.max(1, item.amount + amount) } : item
@@ -46,17 +46,43 @@ const RestaurantDishesPage: React.FC = () => {
                             <div className="dish-info">
                                 <h3>{dish.name}</h3>
                                 <p>Price: {dish.price}</p>
-                                <p>Fat: {dish.nutrition.fat}, Sugar: {dish.nutrition.sugar}</p>
-                                <p>Protein: {dish.nutrition.protein}, Calories: {dish.nutrition.calories}</p>
+                                <p>
+                                    Fat: {dish.nutrition.fat}, Sugar: {dish.nutrition.sugar}
+                                </p>
+                                <p>
+                                    Protein: {dish.nutrition.protein}, Calories:{' '}
+                                    {dish.nutrition.calories}
+                                </p>
                                 {cartItem ? (
                                     <div className="cart-controls">
-                                        <button onClick={() => handleChangeamount({ dishId: dish.id, amount: -1 })}>-</button>
+                                        <button
+                                            onClick={() =>
+                                                handleChangeamount({ dishId: dish.id, amount: -1 })
+                                            }
+                                        >
+                                            -
+                                        </button>
                                         <span>{cartItem.amount}</span>
-                                        <button onClick={() => handleChangeamount({ dishId: dish.id, amount: 1 })}>+</button>
-                                        <button onClick={() => handleRemoveFromCart({ dishId: dish.id })} className="remove-button">Remove</button>
+                                        <button
+                                            onClick={() =>
+                                                handleChangeamount({ dishId: dish.id, amount: 1 })
+                                            }
+                                        >
+                                            +
+                                        </button>
+                                        <button
+                                            onClick={() =>
+                                                handleRemoveFromCart({ dishId: dish.id })
+                                            }
+                                            className="remove-button"
+                                        >
+                                            Remove
+                                        </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => handleAddToCart({ dish: dish })}>Add to Cart</button>
+                                    <button onClick={() => handleAddToCart({ dish: dish })}>
+                                        Add to Cart
+                                    </button>
                                 )}
                             </div>
                         </li>

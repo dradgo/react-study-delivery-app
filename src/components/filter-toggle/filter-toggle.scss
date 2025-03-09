@@ -1,136 +1,142 @@
-@use "sass:color";
-@use "/src/styles/colors.scss" as *;
+@use 'sass:color';
+@use '/src/styles/colors.scss' as *;
 
 .filter-toggle-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .filter-toggle {
-  display: flex;
-  gap: 8px;
-  
-  &__label {
-    font-size: 14px;
-    color: $text-secondary-color;
-    margin-bottom: 4px;
-  }
-
-  &--start { justify-content: flex-start; }
-  &--center { justify-content: center; }
-  &--end { justify-content: flex-end; }
-  
-  &--full-width {
-    width: 100%;
-    
-    .filter-toggle__btn {
-      flex: 1;
-    }
-  }
-  
-  &--disabled {
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  &--small {
-    .filter-toggle__btn {
-      padding: 6px 12px;
-      font-size: 12px;
-    }
-  }
-
-  &--medium {
-    .filter-toggle__btn {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-  }
-
-  &--large {
-    .filter-toggle__btn {
-      padding: 12px 24px;
-      font-size: 16px;
-    }
-  }
-
-  &__btn {
     display: flex;
-    align-items: center;
     gap: 8px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    
-    &-icon {
-      display: flex;
-      align-items: center;
-      font-size: 1.2em;
+
+    &__label {
+        font-size: 14px;
+        color: $text-secondary-color;
+        margin-bottom: 4px;
     }
 
-    &-label {
-      white-space: nowrap;
+    &--start {
+        justify-content: flex-start;
     }
-  }
-
-  &--primary {
-    .filter-toggle__btn {
-      border: 1px solid $primary-color;
-      background: transparent;
-      color: $text-primary-color;
-
-      &:hover:not(.active) {
-        background: rgba($primary-color, 0.1);
-      }
-
-      &.active {
-        background: $primary-color;
-        color: $background-color;
-      }
+    &--center {
+        justify-content: center;
     }
-  }
-
-  &--secondary {
-    .filter-toggle__btn {
-      border: none;
-      background: $background-color;
-      color: $text-primary-color;
-
-      &:hover:not(.active) {
-        background: color.adjust($background-color, $lightness: -5%);
-      }
-
-      &.active {
-        background: $accent-color;
-        color: $background-color;
-      }
+    &--end {
+        justify-content: flex-end;
     }
-  }
 
-  &--outline {
-    .filter-toggle__btn {
-      border: 1px solid $border-color;
-      background: transparent;
-      color: $text-primary-color;
+    &--full-width {
+        width: 100%;
 
-      &:hover:not(.active) {
-        border-color: $primary-color;
-        color: $primary-color;
-      }
-
-      &.active {
-        border-color: $primary-color;
-        color: $primary-color;
-        background: rgba($primary-color, 0.1);
-      }
+        .filter-toggle__btn {
+            flex: 1;
+        }
     }
-  }
 
-  &__divider {
-    width: 1px;
-    background-color: $border-color;
-    margin: 0 4px;
-  }
-} 
+    &--disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &--small {
+        .filter-toggle__btn {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+    }
+
+    &--medium {
+        .filter-toggle__btn {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+
+    &--large {
+        .filter-toggle__btn {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        &-label {
+            white-space: nowrap;
+        }
+    }
+
+    &--primary {
+        .filter-toggle__btn {
+            border: 1px solid $primary-color;
+            background: transparent;
+            color: $text-primary-color;
+
+            &:hover:not(.active) {
+                background: rgba($primary-color, 0.1);
+            }
+
+            &.active {
+                background: $primary-color;
+                color: $background-color;
+            }
+        }
+    }
+
+    &--secondary {
+        .filter-toggle__btn {
+            border: none;
+            background: $background-color;
+            color: $text-primary-color;
+
+            &:hover:not(.active) {
+                background: color.adjust($background-color, $lightness: -5%);
+            }
+
+            &.active {
+                background: $accent-color;
+                color: $background-color;
+            }
+        }
+    }
+
+    &--outline {
+        .filter-toggle__btn {
+            border: 1px solid $border-color;
+            background: transparent;
+            color: $text-primary-color;
+
+            &:hover:not(.active) {
+                border-color: $primary-color;
+                color: $primary-color;
+            }
+
+            &.active {
+                border-color: $primary-color;
+                color: $primary-color;
+                background: rgba($primary-color, 0.1);
+            }
+        }
+    }
+
+    &__divider {
+        width: 1px;
+        background-color: $border-color;
+        margin: 0 4px;
+    }
+}

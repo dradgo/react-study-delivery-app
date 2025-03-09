@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useUser } from "../../context/user-context";
-import './client-cart.scss'
+import { useUser } from '../../context/user-context';
+import './client-cart.scss';
 import { Wrapper } from '../../components/wrapper/wrapper';
-
 
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
@@ -12,7 +11,7 @@ const ClientCartPage: React.FC = () => {
         setCart(cart.filter((item: any) => item.id !== dishId));
     };
 
-    const handleChangeAmount = ({ dishId, amount }: { dishId: any, amount: any }) => {
+    const handleChangeAmount = ({ dishId, amount }: { dishId: any; amount: any }) => {
         setCart((prevCart: any) =>
             prevCart.map((item: any) =>
                 item.id === dishId ? { ...item, amount: Math.max(1, item.amount + amount) } : item
@@ -44,10 +43,29 @@ const ClientCartPage: React.FC = () => {
                                     <h3>{item.name}</h3>
                                     <p>Price: {item.price}</p>
                                     <div className="cart-controls">
-                                        <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>-</button>
+                                        <button
+                                            onClick={() =>
+                                                handleChangeAmount({ dishId: item.id, amount: -1 })
+                                            }
+                                        >
+                                            -
+                                        </button>
                                         <span>{item.amount}</span>
-                                        <button onClick={() => handleChangeAmount({ dishId: item.id, amount: 1 })}>+</button>
-                                        <button onClick={() => handleRemoveFromCart({ dishId: item.id })} className="remove-button">Remove</button>
+                                        <button
+                                            onClick={() =>
+                                                handleChangeAmount({ dishId: item.id, amount: 1 })
+                                            }
+                                        >
+                                            +
+                                        </button>
+                                        <button
+                                            onClick={() =>
+                                                handleRemoveFromCart({ dishId: item.id })
+                                            }
+                                            className="remove-button"
+                                        >
+                                            Remove
+                                        </button>
                                     </div>
                                 </div>
                             </li>
@@ -64,7 +82,9 @@ const ClientCartPage: React.FC = () => {
                             />
                         </label>
                     </div>
-                    <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
+                    <button className="checkout-button" onClick={handleCheckout}>
+                        Checkout
+                    </button>
                 </>
             )}
         </Wrapper>

@@ -38,17 +38,19 @@ label {
     color: #555;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-button[type="button"] {
+button[type='button'] {
     background-color: #6c757d;
 }
 
-button[type="button"]:hover {
+button[type='button']:hover {
     background-color: #5a6268;
 }

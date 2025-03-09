@@ -1,61 +1,60 @@
-@use "sass:color";
-@use "./styles/colors.scss" as *;
-@use "./styles/fonts.scss" as *;
+@use 'sass:color';
+@use './styles/colors.scss' as *;
+@use './styles/fonts.scss' as *;
 
 #root {
-  position: relative;
+    position: relative;
 }
 
 * {
-  font-family: "YSText", sans-serif;
+    font-family: 'YSText', sans-serif;
 }
 
 body {
-  background-color: $background-color;
-  margin: 0;
+    background-color: $background-color;
+    margin: 0;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 input {
-  border: 1px solid $border-color;
-  padding: 10px;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.3s ease;
+    border: 1px solid $border-color;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
 
-  &:focus {
-    border-color: $primary-color;
-    box-shadow: 0 0 5px rgba(255, 87, 51, 0.5);
-  }
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 5px rgba(255, 87, 51, 0.5);
+    }
 }
 
 select {
-  margin-top: 5px;
-  padding: 5px;
-  font-size: 1rem;
-  border-radius: $primary-boder-radius;
-  border: 1px solid #ccc;
-  background: white;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: $primary-boder-radius;
+    border: 1px solid #ccc;
+    background: white;
 }
 
 button {
-  background: $primary-color;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-  border-radius: $primary-boder-radius;
+    background: $primary-color;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: $primary-boder-radius;
 
-  &:hover {
-    background-color: color.adjust($primary-color, $lightness: -10%);
-  }
+    &:hover {
+        background-color: color.adjust($primary-color, $lightness: -10%);
+    }
 }

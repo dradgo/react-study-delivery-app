@@ -1,73 +1,73 @@
 /* Header Styles */
 
-@use "sass:math";
-@use "sass:color";
-@use "/src/styles/colors.scss" as *;
-@use "/src/styles/fonts.scss" as *;
+@use 'sass:math';
+@use 'sass:color';
+@use '/src/styles/colors.scss' as *;
+@use '/src/styles/fonts.scss' as *;
 
 .header {
-  display: flex;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  justify-content: space-between;
-  align-items: center;
-  background: $secondary-color;
-  color: white;
-  padding: 15px 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    justify-content: space-between;
+    align-items: center;
+    background: $secondary-color;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  a {
-    font-family: "YSTextBold" !important;
-    color: white;
-    text-decoration: none;
-    &:hover {
-      color: #f8f9fa;
+    font-size: 1.5rem;
+    font-weight: bold;
+    a {
+        font-family: 'YSTextBold' !important;
+        color: white;
+        text-decoration: none;
+        &:hover {
+            color: #f8f9fa;
+        }
     }
-  }
 }
 
 .nav {
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    color: $text-primary-color;
-    background: $background-color;
-    border-radius: $primary-boder-radius;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 10px;
-    transition: background 0.3s;
-
-    &:hover {
-      background-color: color.adjust($text-primary-color, $lightness: 70%);
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
     }
-  }
+    a {
+        color: $text-primary-color;
+        background: $background-color;
+        border-radius: $primary-boder-radius;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 10px;
+        transition: background 0.3s;
+
+        &:hover {
+            background-color: color.adjust($text-primary-color, $lightness: 70%);
+        }
+    }
 }
 
 .logout-button {
-  background: $error-color;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: $primary-boder-radius;
-  &:hover {
-    background: #c82333;
-  }
+    background: $error-color;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: $primary-boder-radius;
+    &:hover {
+        background: #c82333;
+    }
 }
 
 .header_link {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
