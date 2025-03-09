@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import { UsersType } from 'src/types/types';
 import { Link } from 'react-router-dom';
+import { INTERNAL_ROUTES } from 'src/constants/links';
+
 
 type MenuItemsProps = {
   onClick: () => void;
@@ -30,6 +32,7 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
   restaurant: ({ onClick }) => (
     <>
       <li className='header_link'><Link to="/restaurant/dashboard">Дашборд</Link></li>
+      <li className='header_link'><Link to={INTERNAL_ROUTES.restaurantManage}>Меню</Link></li>
       <li className='header_link'><Link to="/restaurant/orders">Заказы</Link></li>
       <li className='header_link'><Link to="/restaurant/profile">Профиль</Link></li>
       <li>
