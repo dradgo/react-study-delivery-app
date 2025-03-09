@@ -13,6 +13,7 @@ import { ClientProfile } from './pages/client/client-profile/client-profile';
 import { INTERNAL_ROUTES } from './constants/links';
 import { UserProvider } from "./context/user-context";
 import MenuManagement from './pages/restaurant/menu-management/menu-management';
+import Dashboard from './pages/restaurant/dashboard/dashboard';
 
 import './App.scss';
 
@@ -34,6 +35,7 @@ function App() {
             <Route path={INTERNAL_ROUTES.clientProfile} element={<ClientProfile />} />
             <Route path={INTERNAL_ROUTES.clientCart} element={<ClientCartPage />} />
             <Route path={`${INTERNAL_ROUTES.restaurantDishes}/:restaurantName/dishes`} element={<RestaurantDishesPage />} />
+            <Route path={`${INTERNAL_ROUTES.dashboard}`} element={<Dashboard />} />
             <Route path={`${INTERNAL_ROUTES.restaurantManage}`} element={<MenuManagement />} />
           </Routes>
         </main>

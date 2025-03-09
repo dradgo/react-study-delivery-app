@@ -9,6 +9,7 @@ enum PageType {
   clientCart = "clientCart",
   restaurantDishes = "restaurantDishes",
   restaurantManage = "restaurantManage",
+  dashboard = "dashboard",
 }
 
 export const INTERNAL_ROUTES: Record<PageType, string> = {
@@ -22,4 +23,5 @@ export const INTERNAL_ROUTES: Record<PageType, string> = {
   [PageType.clientCart]: "/client/cart",
   [PageType.restaurantDishes]: "/client/restaurant/:restaurantName/dishes",
   [PageType.restaurantManage]: "/restaurant/manage",
+  [PageType.dashboard]: "/restaurant/dashboard",
 };

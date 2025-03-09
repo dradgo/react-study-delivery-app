@@ -6,7 +6,7 @@
 
   &__title {
     font-size: 32px;
-    color: $primary-text-color;
+    color: $text-primary-color;
     margin-bottom: 30px;
   }
 
@@ -21,7 +21,7 @@
     background-color: $background-color;
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 2px 4px rgba($primary-color, 0.1);
+    box-shadow: 0 2px 4px rgba($text-primary-color, 0.1);
 
     &-image {
       width: 100%;
