@@ -36,7 +36,7 @@ const RestaurantDishesPage: React.FC = () => {
 
     return (
         <Wrapper>
-            <h2>{restaurantName} Dishes</h2>
+            <h2>{restaurantName} - Меню</h2>
             <ul className="dishes-list">
                 {dishesMock.map((dish) => {
                     const cartItem = cart.find((item: any) => item.id === dish.id);

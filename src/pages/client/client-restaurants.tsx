@@ -39,7 +39,7 @@ const ClientRestaurantsPage: React.FC = () => {
 
     return (
         <Wrapper>
-            <h2>Restaurants</h2>
+            <h2>Рестораны</h2>
             <ul className="restaurants-list">
                 {restaurants.map((restaurant) => (
                     <li key={restaurant.id} className="restaurant-item">

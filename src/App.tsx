@@ -34,7 +34,7 @@ function App() {
             <Route path={INTERNAL_ROUTES.clientRestaurant} element={<ClientRestaurantsPage />} />
             <Route path={INTERNAL_ROUTES.clientProfile} element={<ClientProfile />} />
             <Route path={INTERNAL_ROUTES.clientCart} element={<ClientCartPage />} />
-            <Route path={`${INTERNAL_ROUTES.restaurantDishes}/:restaurantName/dishes`} element={<RestaurantDishesPage />} />
+            <Route path={`${INTERNAL_ROUTES.restaurantDishes}`} element={<RestaurantDishesPage />} />
             <Route path={`${INTERNAL_ROUTES.dashboard}`} element={<Dashboard />} />
             <Route path={`${INTERNAL_ROUTES.restaurantManage}`} element={<MenuManagement />} />
           </Routes>
