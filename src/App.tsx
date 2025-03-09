@@ -16,6 +16,8 @@ import MenuManagement from './pages/restaurant/menu-management/menu-management';
 import Dashboard from './pages/restaurant/dashboard/dashboard';
 
 import './App.scss';
+import RestaurantOrdersPage from "./pages/restaurant/restaurant-orders";
+import AdminOrdersPage from "./pages/admin/admin-orders";
 
 function App() {
     return (
@@ -43,8 +45,9 @@ function App() {
                         <Route path={`${INTERNAL_ROUTES.dashboard}`} element={<Dashboard />} />
                         <Route
                             path={`${INTERNAL_ROUTES.restaurantManage}`}
-                            element={<MenuManagement />}
-                        />
+                            element={<MenuManagement />} />
+                        <Route path={`${INTERNAL_ROUTES.restaurantOrders}`} element={<RestaurantOrdersPage />} />
+                        <Route path={`${INTERNAL_ROUTES.adminOrders}`} element={<AdminOrdersPage/>} />
                     </Routes>
                 </main>
                 <Footer />

@@ -77,7 +77,7 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
                 <Link to="/admin/restaurants">Рестораны</Link>
             </li>
             <li className="header_link">
-                <Link to="/admin/delivery">Доставка</Link>
+                <Link to="/admin/orders">Доставка</Link>
             </li>
             <li>
                 <button onClick={onClick} className="logout-button">
