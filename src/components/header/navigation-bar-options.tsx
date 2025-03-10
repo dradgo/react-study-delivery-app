@@ -41,7 +41,7 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
     courier: ({ onClick }) => (
         <>
             <li className="header_link">
-                <NavLink to="/courier/orders" className="header__link">
+                <NavLink to="/home/courier" className="header__link">
                     Заказы
                 </NavLink>
             </li>
@@ -104,7 +104,7 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
                 </NavLink>
             </li>
             <li className="header_link">
-                <NavLink to="/admin/delivery" className="header__link">
+                <NavLink to="/admin/orders" className="header__link">
                     Доставка
                 </NavLink>
             </li>
