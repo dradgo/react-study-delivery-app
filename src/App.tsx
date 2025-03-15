@@ -18,6 +18,7 @@ import Dashboard from './pages/restaurant/dashboard/dashboard';
 import './App.scss';
 import RestaurantOrdersPage from "./pages/restaurant/restaurant-orders";
 import AdminOrdersPage from "./pages/admin/admin-orders";
+import CourierProfilePage from './pages/courier/profile/profile';
 
 function App() {
     return (
@@ -30,7 +31,7 @@ function App() {
                         <Route path={INTERNAL_ROUTES.login} element={<LoginPage />} />
                         <Route path={INTERNAL_ROUTES.clientOrders} element={<ClientOrders />} />
                         <Route path={INTERNAL_ROUTES.courierOrders} element={<CourierOrders />} />
-                        <Route path={INTERNAL_ROUTES.clientOrders} element={<CourierOrders />} />
+                        <Route path={INTERNAL_ROUTES.courierProfile} element={<CourierProfilePage />} />
                         <Route
                             path={INTERNAL_ROUTES.clientRestaurant}
                             element={<ClientRestaurantsPage />}
