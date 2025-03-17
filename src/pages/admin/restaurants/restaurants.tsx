@@ -1,12 +1,70 @@
 import React, { useState } from 'react';
 import { Restaurant } from 'src/types/types';
 import Input from 'src/components/input/input';
-import { mockRestaurants } from 'src/mocks/restaurants';
 import './restaurants.scss';
+
+// Create mock data that matches the Restaurant type from src/types/types.ts
+const adminMockRestaurants: Restaurant[] = [
+    {
+        id: '1',
+        name: 'Pizza Palace',
+        address: 'ул. Пушкина, д. 10',
+        phone: '+7 (999) 123-45-67',
+        isActive: true,
+        rating: 4.7,
+        cuisine: 'Итальянская',
+        createdAt: '2023-01-15',
+        updatedAt: '2023-05-20'
+    },
+    {
+        id: '2',
+        name: 'Sushi World',
+        address: 'ул. Ленина, д. 25',
+        phone: '+7 (999) 234-56-78',
+        isActive: true,
+        rating: 4.5,
+        cuisine: 'Японская',
+        createdAt: '2023-02-10',
+        updatedAt: '2023-06-15'
+    },
+    {
+        id: '3',
+        name: 'Burger Joint',
+        address: 'пр. Мира, д. 42',
+        phone: '+7 (999) 345-67-89',
+        isActive: false,
+        rating: 4.2,
+        cuisine: 'Американская',
+        createdAt: '2023-03-05',
+        updatedAt: '2023-07-10'
+    },
+    {
+        id: '4',
+        name: 'Pasta Place',
+        address: 'ул. Гагарина, д. 15',
+        phone: '+7 (999) 456-78-90',
+        isActive: true,
+        rating: 4.4,
+        cuisine: 'Итальянская',
+        createdAt: '2023-04-20',
+        updatedAt: '2023-08-05'
+    },
+    {
+        id: '5',
+        name: 'Steak House',
+        address: 'ул. Советская, д. 30',
+        phone: '+7 (999) 567-89-01',
+        isActive: true,
+        rating: 4.8,
+        cuisine: 'Американская',
+        createdAt: '2023-05-15',
+        updatedAt: '2023-09-01'
+    }
+];
 
 const Restaurants: React.FC = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [restaurants, setRestaurants] = useState<Restaurant[]>(mockRestaurants);
+    const [restaurants, setRestaurants] = useState<Restaurant[]>(adminMockRestaurants);
 
     const filteredRestaurants = restaurants.filter((restaurant) => {
         const searchLower = searchQuery.toLowerCase();

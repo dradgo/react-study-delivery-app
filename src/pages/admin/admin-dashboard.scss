@@ -1,0 +1,172 @@
+.admin-dashboard {
+  padding: 20px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__search {
+    flex: 1;
+    min-width: 250px;
+
+    &-input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: #2196f3;
+      }
+    }
+  }
+
+  &__sort {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+      color: #757575;
+      font-weight: 500;
+    }
+
+    &-btn {
+      padding: 8px 12px;
+      background-color: #f0f0f0;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #555;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+      &:hover {
+        background-color: #e0e0e0;
+        border-color: #c0c0c0;
+      }
+
+      &.active {
+        background-color: #2196f3;
+        color: white;
+        border-color: #1976d2;
+        box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+      }
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 14px;
+      color: #757575;
+      margin: 0 0 10px;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__restaurants {
+    margin-top: 30px;
+  }
+
+  &__restaurant-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-weight: 700;
+        color: #ff9800;
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    &-stat {
+      h4 {
+        font-size: 13px;
+        color: #757575;
+        margin: 0 0 5px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      &.completed {
+        color: #4caf50;
+      }
+
+      &.cancelled {
+        color: #f44336;
+      }
+
+      &.pending {
+        color: #ff9800;
+      }
+
+      &.revenue {
+        color: #2196f3;
+      }
+    }
+  }
+} 

@@ -13,7 +13,7 @@ enum PageType {
     dashboard = 'dashboard',
     restaurantOrders = 'restaurantOrders',
     adminOrders = 'adminOrders',
-    adminRestaurants = 'adminRestaurants',
+    adminDashboard = 'adminDashboard',
 }
 
 export const INTERNAL_ROUTES: Record<PageType, string> = {
@@ -30,6 +30,6 @@ export const INTERNAL_ROUTES: Record<PageType, string> = {
     [PageType.restaurantManage]: '/restaurant/manage',
     [PageType.restaurantOrders]: '/restaurant/orders',
     [PageType.adminOrders]: '/admin/orders',
+    [PageType.adminDashboard]: '/admin/dashboard',
     [PageType.dashboard]: '/home/restaurant',
-    [PageType.adminRestaurants]: '/admin/restaurants',
 };
