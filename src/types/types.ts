@@ -26,3 +26,20 @@ export type FilterOption = {
     icon?: React.ReactNode;
     value: any;
 };
+
+export interface Restaurant {
+    id: string;
+    name: string;
+    address: string;
+    phone: string;
+    isActive: boolean;
+    rating: number;
+    description?: string;
+    cuisine?: string;
+    openingHours?: {
+        open: string;
+        close: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+}
