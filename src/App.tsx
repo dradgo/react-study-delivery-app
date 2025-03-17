@@ -20,6 +20,7 @@ import RestaurantOrdersPage from './pages/restaurant/restaurant-orders';
 import AdminOrdersPage from './pages/admin/admin-orders';
 import CourierProfilePage from './pages/courier/profile/profile';
 import AdminDashboard from './pages/admin/admin-dashboard';
+import Restaurants from './pages/admin/restaurants/restaurants';
 
 function App() {
     return (
@@ -62,6 +63,10 @@ function App() {
                         <Route
                             path={`${INTERNAL_ROUTES.adminDashboard}`}
                             element={<AdminDashboard />}
+                        />
+                        <Route
+                            path={`${INTERNAL_ROUTES.adminRestaurants}`}
+                            element={<Restaurants />}
                         />
                     </Routes>
                 </main>
