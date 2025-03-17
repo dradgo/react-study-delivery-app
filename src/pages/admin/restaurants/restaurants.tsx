@@ -14,7 +14,7 @@ const adminMockRestaurants: Restaurant[] = [
         rating: 4.7,
         cuisine: 'Итальянская',
         createdAt: '2023-01-15',
-        updatedAt: '2023-05-20'
+        updatedAt: '2023-05-20',
     },
     {
         id: '2',
@@ -25,7 +25,7 @@ const adminMockRestaurants: Restaurant[] = [
         rating: 4.5,
         cuisine: 'Японская',
         createdAt: '2023-02-10',
-        updatedAt: '2023-06-15'
+        updatedAt: '2023-06-15',
     },
     {
         id: '3',
@@ -36,7 +36,7 @@ const adminMockRestaurants: Restaurant[] = [
         rating: 4.2,
         cuisine: 'Американская',
         createdAt: '2023-03-05',
-        updatedAt: '2023-07-10'
+        updatedAt: '2023-07-10',
     },
     {
         id: '4',
@@ -47,7 +47,7 @@ const adminMockRestaurants: Restaurant[] = [
         rating: 4.4,
         cuisine: 'Итальянская',
         createdAt: '2023-04-20',
-        updatedAt: '2023-08-05'
+        updatedAt: '2023-08-05',
     },
     {
         id: '5',
@@ -58,8 +58,8 @@ const adminMockRestaurants: Restaurant[] = [
         rating: 4.8,
         cuisine: 'Американская',
         createdAt: '2023-05-15',
-        updatedAt: '2023-09-01'
-    }
+        updatedAt: '2023-09-01',
+    },
 ];
 
 const Restaurants: React.FC = () => {

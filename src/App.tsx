@@ -16,8 +16,8 @@ import MenuManagement from './pages/restaurant/menu-management/menu-management';
 import Dashboard from './pages/restaurant/dashboard/dashboard';
 
 import './App.scss';
-import RestaurantOrdersPage from "./pages/restaurant/restaurant-orders";
-import AdminOrdersPage from "./pages/admin/admin-orders";
+import RestaurantOrdersPage from './pages/restaurant/restaurant-orders';
+import AdminOrdersPage from './pages/admin/admin-orders';
 import CourierProfilePage from './pages/courier/profile/profile';
 import AdminDashboard from './pages/admin/admin-dashboard';
 
@@ -32,7 +32,10 @@ function App() {
                         <Route path={INTERNAL_ROUTES.login} element={<LoginPage />} />
                         <Route path={INTERNAL_ROUTES.clientOrders} element={<ClientOrders />} />
                         <Route path={INTERNAL_ROUTES.courierOrders} element={<CourierOrders />} />
-                        <Route path={INTERNAL_ROUTES.courierProfile} element={<CourierProfilePage />} />
+                        <Route
+                            path={INTERNAL_ROUTES.courierProfile}
+                            element={<CourierProfilePage />}
+                        />
                         <Route
                             path={INTERNAL_ROUTES.clientRestaurant}
                             element={<ClientRestaurantsPage />}
@@ -46,10 +49,20 @@ function App() {
                         <Route path={`${INTERNAL_ROUTES.dashboard}`} element={<Dashboard />} />
                         <Route
                             path={`${INTERNAL_ROUTES.restaurantManage}`}
-                            element={<MenuManagement />} />
-                        <Route path={`${INTERNAL_ROUTES.restaurantOrders}`} element={<RestaurantOrdersPage />} />
-                        <Route path={`${INTERNAL_ROUTES.adminOrders}`} element={<AdminOrdersPage/>} />
-                        <Route path={`${INTERNAL_ROUTES.adminDashboard}`} element={<AdminDashboard />} />
+                            element={<MenuManagement />}
+                        />
+                        <Route
+                            path={`${INTERNAL_ROUTES.restaurantOrders}`}
+                            element={<RestaurantOrdersPage />}
+                        />
+                        <Route
+                            path={`${INTERNAL_ROUTES.adminOrders}`}
+                            element={<AdminOrdersPage />}
+                        />
+                        <Route
+                            path={`${INTERNAL_ROUTES.adminDashboard}`}
+                            element={<AdminDashboard />}
+                        />
                     </Routes>
                 </main>
                 <Footer />
