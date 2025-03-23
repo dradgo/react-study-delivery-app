@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './register-modal.scss';
 
 const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [userType, setUserType] = useState('');
@@ -34,7 +35,7 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         <label>Select User Type:</label>
                         <select value={userType} onChange={(e) => setUserType(e.target.value)}>
                             <option value="">Select...</option>
-                            <option value="customer">Client</option>
+                            <option value="client">Client</option>
                             <option value="courier">Courier</option>
                             <option value="restaurant">Restaurant</option>
                         </select>

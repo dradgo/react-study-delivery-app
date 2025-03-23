@@ -24,7 +24,13 @@ export const UnauthMainPage = () => {
                 </div>
             </section>
             <footer className="welcome-footer" />
-            {isRegisterOpen && <RegisterModal onClose={() => setIsRegisterOpen(false)} />}
+            {isRegisterOpen && (
+                <RegisterModal
+                    onClose={() => {
+                        setIsRegisterOpen(false);
+                    }}
+                />
+            )}
         </div>
     );
 };
