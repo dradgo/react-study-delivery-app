@@ -1,0 +1,40 @@
+@use '../../../styles/colors' as *;
+
+.users {
+    &__container {
+        padding: 20px;
+        background-color: $background-color;
+        border-radius: 8px;
+    }
+
+    &__tabs {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+}
+
+.tab {
+    cursor: pointer;
+    height: 36px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: $text-primary-color;
+
+}
+
+.active {
+  border-bottom: 5px solid $primary-color;
+}
+
+.tab-content {
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}

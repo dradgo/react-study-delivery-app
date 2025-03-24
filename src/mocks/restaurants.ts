@@ -52,3 +52,30 @@ export const mockRestaurants: Restaurant[] = [
         rating: 4.8,
     },
 ];
+
+export const restaurantsWithImage = [
+    {
+        id: 1,
+        name: 'Pizza Place',
+        logo: 'https://via.placeholder.com/100',
+        address: '123 Main St',
+        deliveryTime: '30-40 min',
+        cuisine: 'Italian',
+    },
+    {
+        id: 2,
+        name: 'Sushi House',
+        logo: 'https://via.placeholder.com/100',
+        address: '456 Elm St',
+        deliveryTime: '25-35 min',
+        cuisine: 'Japanese',
+    },
+    {
+        id: 3,
+        name: 'Burger Corner',
+        logo: 'https://via.placeholder.com/100',
+        address: '789 Oak St',
+        deliveryTime: '20-30 min',
+        cuisine: 'American',
+    },
+];

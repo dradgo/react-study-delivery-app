@@ -21,6 +21,7 @@ import AdminOrdersPage from './pages/admin/admin-orders';
 import CourierProfilePage from './pages/courier/profile/profile';
 import AdminDashboard from './pages/admin/admin-dashboard';
 import Restaurants from './pages/admin/restaurants/restaurants';
+import { Users } from './pages/admin/users/users';
 
 function App() {
     return (
@@ -68,6 +69,7 @@ function App() {
                             path={`${INTERNAL_ROUTES.adminRestaurants}`}
                             element={<Restaurants />}
                         />
+                        <Route path={`${INTERNAL_ROUTES.adminUsers}`} element={<Users />} />
                     </Routes>
                 </main>
                 <Footer />

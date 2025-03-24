@@ -1,0 +1,32 @@
+@use '../../styles/colors' as *;
+
+.customer-card {
+    cursor: pointer;
+    max-width: 200px;
+    max-height: 350px;
+    min-height: 100px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: $background-color;
+
+    :hover {
+      
+    }
+}
+
+.customer-name {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.customer-info {
+    margin: 4px 0;
+    font-size: 14px;
+    padding-bottom: 4px;
+
+    strong {
+        font-weight: bold;
+    }
+}
