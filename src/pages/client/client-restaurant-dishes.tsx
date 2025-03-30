@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import { useUser } from '../../context/user-context';
 import './client-restaurant-dishes.scss';
@@ -8,8 +8,12 @@ import { dishesMock } from '../../mocks/dishes';
 const RestaurantDishesPage: React.FC = () => {
     const { restaurantName } = useParams();
     const { cart, setCart } = useUser();
+    const [selectedCustomizations, setSelectedCustomizations] = useState<{
+        [dishId: number]: { [customName: string]: string };
+    }>({});
 
     const handleAddToCart = ({ dish }: { dish: any }) => {
+        const customization = selectedCustomizations[dish.id] || {};
         setCart((prevCart: any) => {
             const existingItem = prevCart.find((item: any) => item.id === dish.id);
             if (existingItem) {
@@ -17,7 +21,12 @@ const RestaurantDishesPage: React.FC = () => {
                     item.id === dish.id ? { ...item, amount: item.amount + 1 } : item
                 );
             } else {
-                return [...prevCart, { ...dish, amount: 1 }];
+                const dishWithCustomization = {
+                    ...dish,
+                    customization,
+                    quantity: 1,
+                };
+                return [...prevCart, dishWithCustomization];
             }
         });
     };
@@ -53,6 +62,34 @@ const RestaurantDishesPage: React.FC = () => {
                                     Protein: {dish.nutrition.protein}, Calories:{' '}
                                     {dish.nutrition.calories}
                                 </p>
+                                {dish.customizations?.map((customization) => (
+                                    <div key={customization.name}>
+                                        <label>{customization.name}:</label>
+                                        <select
+                                            value={
+                                                selectedCustomizations[dish.id]?.[
+                                                    customization.name
+                                                ] || ''
+                                            }
+                                            onChange={(e) =>
+                                                setSelectedCustomizations((prev) => ({
+                                                    ...prev,
+                                                    [dish.id]: {
+                                                        ...prev[dish.id],
+                                                        [customization.name]: e.target.value,
+                                                    },
+                                                }))
+                                            }
+                                        >
+                                            <option value="">Select...</option>
+                                            {customization.options.map((opt) => (
+                                                <option key={opt.value} value={opt.value}>
+                                                    {opt.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                ))}
                                 {cartItem ? (
                                     <div className="cart-controls">
                                         <button

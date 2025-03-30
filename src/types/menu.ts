@@ -1,3 +1,8 @@
+interface CustomizationOption {
+    label: string;
+    value: string;
+}
+
 export type NutritionInfo = {
     fat: string;
     sugar: string;
@@ -13,4 +18,8 @@ export type MenuItem = {
     nutrition: NutritionInfo;
     available: boolean;
     category: string;
+    customizations?: {
+        name: string;
+        options: CustomizationOption[];
+    }[];
 };

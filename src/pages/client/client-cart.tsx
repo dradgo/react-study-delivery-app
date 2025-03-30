@@ -42,6 +42,14 @@ const ClientCartPage: React.FC = () => {
                                 <div className="cart-info">
                                     <h3>{item.name}</h3>
                                     <p>Price: {item.price}</p>
+                                    {item.customization &&
+                                        Object.entries(item.customization).map(([key, val]) => (
+                                            <p key={key}>
+                                                <>
+                                                    {key}: {val}
+                                                </>
+                                            </p>
+                                        ))}
                                     <div className="cart-controls">
                                         <button
                                             onClick={() =>
