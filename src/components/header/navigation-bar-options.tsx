@@ -22,7 +22,7 @@ export const navigationBarOptions: Record<UsersType, (props: MenuItemsProps) => 
                 </NavLink>
             </li>
             <li className="header_link">
-                <NavLink to="/client/orders" className="header__link">
+                <NavLink to="/home/client" className="header__link">
                     Заказы
                 </NavLink>
             </li>
