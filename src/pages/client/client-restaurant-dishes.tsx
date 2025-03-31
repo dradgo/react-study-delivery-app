@@ -15,16 +15,18 @@ const RestaurantDishesPage: React.FC = () => {
     const handleAddToCart = ({ dish }: { dish: any }) => {
         const customization = selectedCustomizations[dish.id] || {};
         setCart((prevCart: any) => {
+
             const existingItem = prevCart.find((item: any) => item.id === dish.id);
             if (existingItem) {
                 return prevCart.map((item: any) =>
                     item.id === dish.id ? { ...item, amount: item.amount + 1 } : item
                 );
             } else {
+
                 const dishWithCustomization = {
                     ...dish,
                     customization,
-                    quantity: 1,
+                    amount: 1,
                 };
                 return [...prevCart, dishWithCustomization];
             }
@@ -48,7 +50,12 @@ const RestaurantDishesPage: React.FC = () => {
             <h2>{restaurantName} - Меню</h2>
             <ul className="dishes-list">
                 {dishesMock.map((dish) => {
-                    const cartItem = cart.find((item: any) => item.id === dish.id);
+                    const cartItem = cart.find((item: any) => {
+                        return item.id == dish.id
+                    });
+
+                    console.log('debug-2', cartItem);
+
                     return (
                         <li key={dish.id} className="dish-item">
                             <img src={dish.image} alt={dish.name} className="dish-image" />
@@ -68,7 +75,7 @@ const RestaurantDishesPage: React.FC = () => {
                                         <select
                                             value={
                                                 selectedCustomizations[dish.id]?.[
-                                                    customization.name
+                                                customization.name
                                                 ] || ''
                                             }
                                             onChange={(e) =>
