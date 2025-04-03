@@ -8,7 +8,7 @@ import Footer from './components/footer/footer';
 import Header from './components/header/header';
 import ClientRestaurantsPage from './pages/client/client-restaurants';
 import RestaurantDishesPage from './pages/client/client-restaurant-dishes';
-import ClientCartPage from './pages/client/client-cart';
+import ClientCartPage from './pages/client/client-cart/client-cart';
 import { ClientProfile } from './pages/client/client-profile/client-profile';
 import { INTERNAL_ROUTES } from './constants/links';
 import { UserProvider } from './context/user-context';

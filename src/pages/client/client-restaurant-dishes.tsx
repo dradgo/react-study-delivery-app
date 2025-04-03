@@ -69,34 +69,36 @@ const RestaurantDishesPage: React.FC = () => {
                                     Protein: {dish.nutrition.protein}, Calories:{' '}
                                     {dish.nutrition.calories}
                                 </p>
-                                {dish.customizations?.map((customization) => (
-                                    <div key={customization.name}>
-                                        <label>{customization.name}:</label>
-                                        <select
-                                            value={
-                                                selectedCustomizations[dish.id]?.[
-                                                customization.name
-                                                ] || ''
-                                            }
-                                            onChange={(e) =>
-                                                setSelectedCustomizations((prev) => ({
-                                                    ...prev,
-                                                    [dish.id]: {
-                                                        ...prev[dish.id],
-                                                        [customization.name]: e.target.value,
-                                                    },
-                                                }))
-                                            }
-                                        >
-                                            <option value="">Select...</option>
-                                            {customization.options.map((opt) => (
-                                                <option key={opt.value} value={opt.value}>
-                                                    {opt.label}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                ))}
+                                <div className="dish__customizations">
+                                    {dish.customizations?.map((customization) => (
+                                        <div key={customization.name}>
+                                            <label>{customization.name}:</label>
+                                            <select
+                                                value={
+                                                    selectedCustomizations[dish.id]?.[
+                                                    customization.name
+                                                    ] || ''
+                                                }
+                                                onChange={(e) =>
+                                                    setSelectedCustomizations((prev) => ({
+                                                        ...prev,
+                                                        [dish.id]: {
+                                                            ...prev[dish.id],
+                                                            [customization.name]: e.target.value,
+                                                        },
+                                                    }))
+                                                }
+                                            >
+                                                <option value="">Select...</option>
+                                                {customization.options.map((opt) => (
+                                                    <option key={opt.value} value={opt.value}>
+                                                        {opt.label}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                    ))}
+                                </div>
                                 {cartItem ? (
                                     <div className="cart-controls">
                                         <button

@@ -38,3 +38,15 @@ h2 {
     flex: 1;
     text-align: left;
 }
+
+
+.dish__customizations {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 16px;
+
+    select {
+        border-radius: 12px;
+        border-color: white;
+    }
+}
