@@ -1,9 +1,15 @@
 import { OrderStatusType } from 'src/constants/order-status';
+import { CustomizationOption } from 'src/types/menu';
 
 export type CartItem = {
     name: string;
     price: string;
     amount: number;
+    customization?: Record<string, string>;
+    customizations?: {
+        name: string;
+        options: CustomizationOption[];
+    }[];
 };
 
 export type UsersType = 'client' | 'restaurant' | 'courier' | 'admin' | 'none';

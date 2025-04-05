@@ -40,7 +40,7 @@ const RestaurantDishesPage: React.FC = () => {
     const handleChangeamount = ({ dishId, amount }: { dishId: any; amount: any }) => {
         setCart((prevCart: any) =>
             prevCart.map((item: any) =>
-                item.id === dishId ? { ...item, amount: Math.max(1, item.amount + amount) } : item
+                item.id === dishId ? { ...item, finalPrice: Number(item.price.substring(1)) , amount: Math.max(1, item.amount + amount) } : item
             )
         );
     };
@@ -76,7 +76,7 @@ const RestaurantDishesPage: React.FC = () => {
                                             <select
                                                 value={
                                                     selectedCustomizations[dish.id]?.[
-                                                    customization.name
+                                                        customization.name
                                                     ] || ''
                                                 }
                                                 onChange={(e) =>
@@ -92,7 +92,10 @@ const RestaurantDishesPage: React.FC = () => {
                                                 <option value="">Select...</option>
                                                 {customization.options.map((opt) => (
                                                     <option key={opt.value} value={opt.value}>
-                                                        {opt.label}
+                                                        {opt.label}{' '}
+                                                        {opt.extraPrice > 0
+                                                            ? `(+ $${opt.extraPrice.toFixed(2)})`
+                                                            : ''}
                                                     </option>
                                                 ))}
                                             </select>

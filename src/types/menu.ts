@@ -1,6 +1,7 @@
-interface CustomizationOption {
+export interface CustomizationOption {
     label: string;
     value: string;
+    extraPrice: number;
 }
 
 export type NutritionInfo = {

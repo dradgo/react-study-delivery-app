@@ -13,17 +13,17 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Size',
                 options: [
-                    { label: 'Small', value: 'small' },
-                    { label: 'Medium', value: 'medium' },
-                    { label: 'Large', value: 'large' },
+                    { label: 'Small', value: 'small', extraPrice: 1.5 },
+                    { label: 'Medium', value: 'medium', extraPrice: 2.5 },
+                    { label: 'Large', value: 'large', extraPrice: 3.5 },
                 ],
             },
             {
                 name: 'Toppings',
                 options: [
-                    { label: 'Mushrooms', value: 'mushrooms' },
-                    { label: 'Pepperoni', value: 'pepperoni' },
-                    { label: 'Onions', value: 'onions' },
+                    { label: 'Mushrooms', value: 'mushrooms', extraPrice: 1.5 },
+                    { label: 'Pepperoni', value: 'pepperoni', extraPrice: 2.5 },
+                    { label: 'Onions', value: 'onions', extraPrice: 3.5 },
                 ],
             },
         ],
@@ -40,16 +40,16 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Rice',
                 options: [
-                    { label: 'White Rice', value: 'white_rice' },
-                    { label: 'Brown Rice', value: 'brown_rice' },
+                    { label: 'White Rice', value: 'white_rice', extraPrice: 0 },
+                    { label: 'Brown Rice', value: 'brown_rice', extraPrice: 1.5 },
                 ],
             },
             {
                 name: 'Toppings',
                 options: [
-                    { label: 'Avocado', value: 'avocado' },
-                    { label: 'Cucumber', value: 'cucumber' },
-                    { label: 'Seaweed', value: 'seaweed' },
+                    { label: 'Avocado', value: 'avocado', extraPrice: 1.5 },
+                    { label: 'Cucumber', value: 'cucumber', extraPrice: 2.5 },
+                    { label: 'Seaweed', value: 'seaweed', extraPrice: 3.5 },
                 ],
             },
         ],
@@ -66,16 +66,16 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Bun',
                 options: [
-                    { label: 'Sesame Seed', value: 'sesame_seed' },
-                    { label: 'Whole Wheat', value: 'whole_wheat' },
+                    { label: 'Sesame Seed', value: 'sesame_seed', extraPrice: 1.5 },
+                    { label: 'Whole Wheat', value: 'whole_wheat', extraPrice: 2.5 },
                 ],
             },
             {
                 name: 'Toppings',
                 options: [
-                    { label: 'Lettuce', value: 'lettuce' },
-                    { label: 'Tomato', value: 'tomato' },
-                    { label: 'Onion', value: 'onion' },
+                    { label: 'Lettuce', value: 'lettuce', extraPrice: 1.5 },
+                    { label: 'Tomato', value: 'tomato', extraPrice: 2.5 },
+                    { label: 'Onion', value: 'onion', extraPrice: 3.5 },
                 ],
             },
         ],
@@ -92,9 +92,9 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Dressing',
                 options: [
-                    { label: 'Ranch', value: 'ranch' },
-                    { label: 'Caesar', value: 'caesar' },
-                    { label: 'Blue Cheese', value: 'blue_cheese' },
+                    { label: 'Ranch', value: 'ranch', extraPrice: 1.5 },
+                    { label: 'Caesar', value: 'caesar', extraPrice: 2.5 },
+                    { label: 'Blue Cheese', value: 'blue_cheese', extraPrice: 1.5 },
                 ],
             },
         ],
@@ -111,9 +111,9 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Sauce',
                 options: [
-                    { label: 'Alfredo', value: 'alfredo' },
-                    { label: 'Pesto', value: 'pesto' },
-                    { label: 'Garlic', value: 'garlic' },
+                    { label: 'Alfredo', value: 'alfredo', extraPrice: 1.5 },
+                    { label: 'Pesto', value: 'pesto', extraPrice: 1.5 },
+                    { label: 'Garlic', value: 'garlic', extraPrice: 0.5 },
                 ],
             },
         ],
@@ -130,9 +130,9 @@ export const dishesMock: MenuItem[] = [
             {
                 name: 'Dressing',
                 options: [
-                    { label: 'Olive Oil', value: 'olive_oil' },
-                    { label: 'Feta', value: 'feta' },
-                    { label: 'Lemon Juice', value: 'lemon_juice' },
+                    { label: 'Olive Oil', value: 'olive_oil', extraPrice: 1.5 },
+                    { label: 'Feta', value: 'feta', extraPrice: 1.5 },
+                    { label: 'Lemon Juice', value: 'lemon_juice', extraPrice: 2.5 },
                 ],
             },
         ],
