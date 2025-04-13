@@ -9,6 +9,20 @@ import { CustomizationOption } from "src/types/menu";
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
 
+    const calculateCustomizationPrice = (item: CartItem) => {
+        let customizationExtra = 0;
+        const customization = item.customization || {};
+        item.customizations?.forEach((custom) => {
+            if (customization[custom.name]) {
+                custom.options.forEach((option) => {
+                    if (option.value === customization[custom.name]) {
+                        customizationExtra += option.extraPrice || 0;
+                    }
+                });
+            }
+        });
+        return customizationExtra;
+    };
     const calculateFinalPrice = (item: CartItem) => {
         const basePrice = Number(item.price.substring(1)) || 0;
         console.log('basePrice:', basePrice);
@@ -62,7 +76,9 @@ const ClientCartPage: React.FC = () => {
                                 <img src={item.image} alt={item.name} className="cart-image" />
                                 <div className="cart-info">
                                     <h3>{item.name}</h3>
-                                    <p>Price: {item.price}</p>
+                                    <p>Base Price: {item.price}</p>
+                                    <p>Customization Price: ${calculateCustomizationPrice(item).toFixed(2)}</p>
+                                    <p>Total Price: ${calculateFinalPrice(item).toFixed(2)}</p>
                                     {item.customization &&
                                         Object.entries(item.customization).map(([key, val]) => {
                                             console.log('debug-custom', key, val);

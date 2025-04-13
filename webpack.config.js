@@ -14,7 +14,7 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, 'dist'),
             publicPath: isGithubPages ? '/react-study-delivery-app/' : '/',
-            filename: isProduction ? '[name].[contenthash].js' : 'bundle.js',
+            filename: isProduction ? '[name].[contenthash].js' : '[name].bundle.js',
             clean: true,
         },
         mode: isProduction ? 'production' : 'development',

@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useUser } from '../../context/user-context';
 import './client-restaurant-dishes.scss';
 import { Wrapper } from '../../components/wrapper/wrapper';
+import { CustomizationDialog } from './client-restaraunt-dishes/customization-dialog';
 import { dishesMock } from '../../mocks/dishes';
+import { MenuItem } from '../../types/menu';
+
 
 const RestaurantDishesPage: React.FC = () => {
     const { restaurantName } = useParams();
     const { cart, setCart } = useUser();
+    const [selectedItem, setSelectedItem] = useState<any | null>(null);
+    const [dialogOpen, setDialogOpen] = useState(false);
     const [selectedCustomizations, setSelectedCustomizations] = useState<{
         [dishId: number]: { [customName: string]: string };
     }>({});
 
-    const handleAddToCart = ({ dish }: { dish: any }) => {
-        const customization = selectedCustomizations[dish.id] || {};
-        setCart((prevCart: any) => {
+    const handleOpenDialog = (item: any) => {
+        console.log('debug-1', item);
+        setSelectedItem(item);
+        setDialogOpen(true);
+    };
 
+    const handleAddToCart = (selectedOptions: Record<any, any>) => {
+        const { dish } = selectedItem || {};
+        console.log('Selected dish:', dish);
+        console.log('Selected options:', selectedOptions);
+        const customization = selectedOptions || {};
+        setCart((prevCart: any) => {
             const existingItem = prevCart.find((item: any) => item.id === dish.id);
             if (existingItem) {
                 return prevCart.map((item: any) =>
                     item.id === dish.id ? { ...item, amount: item.amount + 1 } : item
                 );
             } else {
-
                 const dishWithCustomization = {
                     ...dish,
                     customization,
@@ -69,70 +81,17 @@ const RestaurantDishesPage: React.FC = () => {
                                     Protein: {dish.nutrition.protein}, Calories:{' '}
                                     {dish.nutrition.calories}
                                 </p>
-                                <div className="dish__customizations">
-                                    {dish.customizations?.map((customization) => (
-                                        <div key={customization.name}>
-                                            <label>{customization.name}:</label>
-                                            <select
-                                                value={
-                                                    selectedCustomizations[dish.id]?.[
-                                                        customization.name
-                                                    ] || ''
-                                                }
-                                                onChange={(e) =>
-                                                    setSelectedCustomizations((prev) => ({
-                                                        ...prev,
-                                                        [dish.id]: {
-                                                            ...prev[dish.id],
-                                                            [customization.name]: e.target.value,
-                                                        },
-                                                    }))
-                                                }
-                                            >
-                                                <option value="">Select...</option>
-                                                {customization.options.map((opt) => (
-                                                    <option key={opt.value} value={opt.value}>
-                                                        {opt.label}{' '}
-                                                        {opt.extraPrice > 0
-                                                            ? `(+ $${opt.extraPrice.toFixed(2)})`
-                                                            : ''}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    ))}
-                                </div>
-                                {cartItem ? (
-                                    <div className="cart-controls">
-                                        <button
-                                            onClick={() =>
-                                                handleChangeamount({ dishId: dish.id, amount: -1 })
-                                            }
-                                        >
-                                            -
-                                        </button>
-                                        <span>{cartItem.amount}</span>
-                                        <button
-                                            onClick={() =>
-                                                handleChangeamount({ dishId: dish.id, amount: 1 })
-                                            }
-                                        >
-                                            +
-                                        </button>
-                                        <button
-                                            onClick={() =>
-                                                handleRemoveFromCart({ dishId: dish.id })
-                                            }
-                                            className="remove-button"
-                                        >
-                                            Remove
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <button onClick={() => handleAddToCart({ dish: dish })}>
+                                <div className="cart-controls">
+                                    <button onClick={() => handleOpenDialog({ dish: dish })}>
                                         Add to Cart
                                     </button>
-                                )}
+                                    <CustomizationDialog
+                                        open={dialogOpen}
+                                        onClose={() => setDialogOpen(false)}
+                                        customizations={selectedItem?.dish.customizations || []}
+                                        onAddToCart={handleAddToCart}
+                                    />
+                                </div>
                             </div>
                         </li>
                     );
