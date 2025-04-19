@@ -13,9 +13,6 @@ const RestaurantDishesPage: React.FC = () => {
     const { cart, setCart } = useUser();
     const [selectedItem, setSelectedItem] = useState<any | null>(null);
     const [dialogOpen, setDialogOpen] = useState(false);
-    const [selectedCustomizations, setSelectedCustomizations] = useState<{
-        [dishId: number]: { [customName: string]: string };
-    }>({});
 
     const handleOpenDialog = (item: any) => {
         console.log('debug-1', item);
@@ -43,18 +40,6 @@ const RestaurantDishesPage: React.FC = () => {
                 return [...prevCart, dishWithCustomization];
             }
         });
-    };
-
-    const handleRemoveFromCart = ({ dishId }: { dishId: any }) => {
-        setCart((prevCart: any) => prevCart.filter((item: any) => item.id !== dishId));
-    };
-
-    const handleChangeamount = ({ dishId, amount }: { dishId: any; amount: any }) => {
-        setCart((prevCart: any) =>
-            prevCart.map((item: any) =>
-                item.id === dishId ? { ...item, finalPrice: Number(item.price.substring(1)) , amount: Math.max(1, item.amount + amount) } : item
-            )
-        );
     };
 
     return (
@@ -85,18 +70,18 @@ const RestaurantDishesPage: React.FC = () => {
                                     <button onClick={() => handleOpenDialog({ dish: dish })}>
                                         Add to Cart
                                     </button>
-                                    <CustomizationDialog
-                                        open={dialogOpen}
-                                        onClose={() => setDialogOpen(false)}
-                                        customizations={selectedItem?.dish.customizations || []}
-                                        onAddToCart={handleAddToCart}
-                                    />
                                 </div>
                             </div>
                         </li>
                     );
                 })}
             </ul>
+            <CustomizationDialog
+                open={dialogOpen}
+                onClose={() => setDialogOpen(false)}
+                customizations={selectedItem?.dish.customizations || []}
+                onAddToCart={handleAddToCart}
+            />
         </Wrapper>
     );
 };
