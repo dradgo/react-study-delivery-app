@@ -5,11 +5,13 @@ type InputProps = {
     label?: string;
     error?: string;
     icon?: ReactElement<SVGElement> | ReactNode;
+    test?: ReactNode
 } & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const Input: React.FC<InputProps> = ({ label, error, icon, ...props }) => {
+const Input: React.FC<InputProps> = ({ label, error, icon, test, ...props }) => {
     return (
         <div className="input-container">
+            {test}
             {label && <label className="input-label">{label}</label>}
             <div className="input-with-icon">
                 {icon ? <span className="input-icon">{icon}</span> : null}

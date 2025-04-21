@@ -14,6 +14,7 @@ export type NutritionInfo = {
 export type MenuItem = {
     id: number;
     name: string;
+    restaurantName?: string;
     image: string;
     price: string;
     nutrition: NutritionInfo;
