@@ -59,6 +59,13 @@ const ClientCartPage: React.FC = () => {
             .reduce((total, item) => total + calculateFinalPrice(item) * item.amount, 0)
             .toFixed(2);
     };
+    const calculateTotalCalories = () => {
+        return cart.reduce((total, item) => {
+            console.log('item:', item);
+            const itemCalories = parseInt(item.nutrition.calories) || 0;
+            return total + itemCalories * item.amount;
+        }, 0);
+    };
     const totalPrice = cart.reduce(
         (total: number, item: any) => total + Number(item.price) * item.amount,
         0
@@ -82,10 +89,11 @@ const ClientCartPage: React.FC = () => {
                                     {item.customization &&
                                         Object.entries(item.customization).map(([key, val]) => {
                                             console.log('debug-custom', key, val);
-                                            return <div className='item__customization' key={key}>
-                                                <p className='custom__key'>{key}: </p>
-                                                <p className='custom__value'>{val as string}</p>
-                                            </div>
+                                            return
+                                                <div className="item__customization" key={key}>
+                                                    <p className='custom__key'>{key}: </p>
+                                                    <p className='custom__value'>{val as string}</p>
+                                                </div>;
                                         })}
                                     <div className="cart-controls">
                                         <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>
@@ -109,6 +117,7 @@ const ClientCartPage: React.FC = () => {
                     <div className="order-summary">
                         <h3>Order Summary</h3>
                         <p>Total: ${calculateTotal()}</p>
+                        <p>Total Calories: {calculateTotalCalories()} kcal</p>
                     </div>
                     <DeliverySecton />
                     <button className="checkout-button" onClick={() => { }}>

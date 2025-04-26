@@ -1,10 +1,11 @@
 import { OrderStatusType } from 'src/constants/order-status';
-import { CustomizationOption } from 'src/types/menu';
+import { CustomizationOption, NutritionInfo } from 'src/types/menu';
 
 export type CartItem = {
     name: string;
     price: string;
     amount: number;
+    nutrition: NutritionInfo;
     customization?: Record<string, string>;
     customizations?: {
         name: string;

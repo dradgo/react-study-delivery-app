@@ -12,12 +12,13 @@ const RestaurantDishesPage: React.FC = () => {
     const { restaurantName } = useParams();
     const { cart, setCart } = useUser();
     const [selectedItem, setSelectedItem] = useState<any | null>(null);
-    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const [nameFilter, setNameFilter] = useState('');
+    const [caloriesFilter, setCaloriesFilter] = useState<number | ''>('');
 
     const handleOpenDialog = (item: any) => {
         console.log('debug-1', item);
         setSelectedItem(item);
-        setDialogOpen(true);
     };
 
     const handleAddToCart = (selectedOptions: Record<any, any>) => {
@@ -41,16 +42,36 @@ const RestaurantDishesPage: React.FC = () => {
             }
         });
     };
+    // Filtering logic
+    const filteredDishes = dishesMock.filter((dish) => {
+        const matchesName = dish.name.toLowerCase().includes(nameFilter.toLowerCase());
+        const matchesCalories =
+            caloriesFilter === '' || parseInt(dish.nutrition.calories) <= caloriesFilter;
+        return dish.restaurantName === restaurantName && matchesName && matchesCalories;
+    });
 
     return (
         <Wrapper>
             <h2>{restaurantName} - Меню</h2>
+            {/* Filter inputs */}
+            <div className="filters">
+                <input
+                    type="text"
+                    placeholder="Filter by name"
+                    value={nameFilter}
+                    onChange={(e) => setNameFilter(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Max calories"
+                    value={caloriesFilter}
+                    onChange={(e) => setCaloriesFilter(Number(e.target.value) || '')}
+                />
+            </div>
             <ul className="dishes-list">
-                {dishesMock.filter((dish) => {
-                    return dish.restaurantName == restaurantName
-                }).map((dish) => {
+                {filteredDishes.map((dish) => {
                     const cartItem = cart.find((item: any) => {
-                        return item.id == dish.id
+                        return item.id == dish.id;
                     });
 
                     return (
@@ -77,8 +98,8 @@ const RestaurantDishesPage: React.FC = () => {
                 })}
             </ul>
             <CustomizationDialog
-                open={dialogOpen}
-                onClose={() => setDialogOpen(false)}
+                open={selectedItem != null}
+                onClose={() => setSelectedItem(null)}
                 customizations={selectedItem?.dish.customizations || []}
                 onAddToCart={handleAddToCart}
             />
