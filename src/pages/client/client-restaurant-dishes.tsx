@@ -26,6 +26,7 @@ const RestaurantDishesPage: React.FC = () => {
         console.log('Selected dish:', dish);
         console.log('Selected options:', selectedOptions);
         const customization = selectedOptions || {};
+        const mealTime = selectedOptions.mealTime || '';
         setCart((prevCart: any) => {
             const existingItem = prevCart.find((item: any) => item.id === dish.id);
             if (existingItem) {
@@ -36,6 +37,7 @@ const RestaurantDishesPage: React.FC = () => {
                 const dishWithCustomization = {
                     ...dish,
                     customization,
+                    mealTime: mealTime,
                     amount: 1,
                 };
                 return [...prevCart, dishWithCustomization];

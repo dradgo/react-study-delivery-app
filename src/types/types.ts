@@ -6,6 +6,7 @@ export type CartItem = {
     price: string;
     amount: number;
     nutrition: NutritionInfo;
+    mealTime: MealTime;
     customization?: Record<string, string>;
     customizations?: {
         name: string;
@@ -16,6 +17,8 @@ export type CartItem = {
 export type UsersType = 'client' | 'restaurant' | 'courier' | 'admin' | 'none';
 
 export type TimeRange = 'day' | 'week' | 'month';
+
+export type MealTime = 'breakfast' | 'lunch' | 'dinner';
 
 export type Order = {
     id: number;

@@ -84,6 +84,7 @@ const ClientCartPage: React.FC = () => {
                                 <div className="cart-info">
                                     <h3>{item.name}</h3>
                                     <p>Base Price: {item.price}</p>
+                                    <p>Meal: {item.mealTime}</p>
                                     <p>Customization Price: ${calculateCustomizationPrice(item).toFixed(2)}</p>
                                     <p>Total Price: ${calculateFinalPrice(item).toFixed(2)}</p>
                                     {item.customization &&

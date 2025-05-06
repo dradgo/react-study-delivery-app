@@ -48,6 +48,36 @@ export const CustomizationDialog: React.FC<CustomizationDialogProps> = React.mem
                             ))}
                         </div>
                     ))}
+                    <div>
+                        <h3>Meal Time</h3>
+                        <label>
+                            <input
+                                type="radio"
+                                name="mealTime"
+                                value="breakfast"
+                                onChange={() => handleOptionChange('mealTime', 'breakfast')}
+                            />
+                            Breakfast
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="mealTime"
+                                value="lunch"
+                                onChange={() => handleOptionChange('mealTime', 'lunch')}
+                            />
+                            Lunch
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name="mealTime"
+                                value="dinner"
+                                onChange={() => handleOptionChange('mealTime', 'dinner')}
+                            />
+                            Dinner
+                        </label>
+                    </div>
                     <button onClick={handleAddToCart}>Add to Cart</button>
                     <button onClick={onClose}>Cancel</button>
                 </div>
