@@ -16,6 +16,7 @@ enum PageType {
     adminDashboard = 'adminDashboard',
     adminRestaurants = 'adminRestaurants',
     adminUsers = 'adminUsers',
+    restProfile = 'restProfile',
 }
 
 export const INTERNAL_ROUTES: Record<PageType, string> = {
@@ -36,4 +37,5 @@ export const INTERNAL_ROUTES: Record<PageType, string> = {
     [PageType.dashboard]: '/home/restaurant',
     [PageType.adminRestaurants]: '/admin/restaurants',
     [PageType.adminUsers]: '/admin/users',
+    [PageType.restProfile]: '/restaurant/profile',
 };

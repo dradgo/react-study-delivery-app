@@ -22,6 +22,7 @@ import CourierProfilePage from './pages/courier/profile/profile';
 import AdminDashboard from './pages/admin/admin-dashboard';
 import Restaurants from './pages/admin/restaurants/restaurants';
 import { Users } from './pages/admin/users/users';
+import DeliverySettings from './pages/restaurant/delivery-settings/delivery-settings';
 
 function App() {
     return (
@@ -70,6 +71,7 @@ function App() {
                             element={<Restaurants />}
                         />
                         <Route path={`${INTERNAL_ROUTES.adminUsers}`} element={<Users />} />
+                        <Route path={`${INTERNAL_ROUTES.restProfile}`} element={<DeliverySettings />} />
                     </Routes>
                 </main>
                 <Footer />

@@ -1,0 +1,96 @@
+@use '/src/styles/colors.scss' as *;
+
+.restaurant-profile {
+    padding: 24px;
+
+    &__title {
+        font-size: 32px;
+        color: $text-primary-color;
+        margin-bottom: 32px;
+    }
+
+    &__sections {
+        display: grid;
+        gap: 32px;
+    }
+
+    &__section {
+        background: $background-color;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 2px 8px rgba($text-primary-color, 0.1);
+
+        h2 {
+            font-size: 24px;
+            color: $text-primary-color;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__info {
+        display: grid;
+        gap: 20px;
+    }
+
+
+    &__schedule {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__time-slot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid rgba($text-primary-color, 0.1);
+    }
+
+    &__day {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        span {
+            font-size: 16px;
+            color: $text-primary-color;
+        }
+    }
+
+    &__time-inputs {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+
+
+
+    }
+
+    &__calendar {
+        .react-calendar {
+            width: 100%;
+            border: none;
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba($text-primary-color, 0.1);
+
+            &__tile {
+                padding: 12px;
+                font-size: 14px;
+
+                &--active {
+                    background: $primary-color;
+                    color: white;
+                }
+
+                &:hover {
+                    background: rgba($primary-color, 0.1);
+                }
+            }
+        }
+    }
+}
