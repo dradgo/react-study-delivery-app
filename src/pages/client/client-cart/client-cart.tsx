@@ -1,13 +1,23 @@
-import React from 'react';
-import { useUser } from '../../../context/user-context';
-import './client-cart.scss';
-import { Wrapper } from '../../../components/wrapper/wrapper';
-import { DeliverySecton } from './components/delivery-section';
+import React from "react";
+import { useUser } from "../../../context/user-context";
+import "./client-cart.scss";
+import { Wrapper } from "../../../components/wrapper/wrapper";
+import { DeliverySecton } from "./components/delivery-section";
 import { CartItem } from "src/types/types";
 import { CustomizationOption } from "src/types/menu";
 
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
+
+    const getBreakfastCard = () => {
+        return cart.filter((item: CartItem) => item.mealTime === 'breakfast');
+    };
+    const getLunchCard = () => {
+        return cart.filter((item: CartItem) => item.mealTime === 'lunch');
+    };
+    const getDinnerCard = () => {
+        return cart.filter((item: CartItem) => item.mealTime === 'dinner');
+    };
 
     const calculateCustomizationPrice = (item: CartItem) => {
         let customizationExtra = 0;
@@ -77,28 +87,28 @@ const ClientCartPage: React.FC = () => {
                 <h3 className="cart-empty">Your cart is empty</h3>
             ) : (
                 <>
+                    <h4>Breakfast</h4>
                     <ul className="cart-list">
-                        {cart.map((item: any) => (
+                        {getBreakfastCard().map((item: any) => (
                             <li key={item.id} className="cart-item">
                                 <img src={item.image} alt={item.name} className="cart-image" />
                                 <div className="cart-info">
                                     <h3>{item.name}</h3>
-                                    <p>Base Price: {item.price}</p>
+                                  <p>Base Price: {item.price}</p>
                                     <p>Meal: {item.mealTime}</p>
                                     <p>Customization Price: ${calculateCustomizationPrice(item).toFixed(2)}</p>
                                     <p>Total Price: ${calculateFinalPrice(item).toFixed(2)}</p>
                                     {item.customization &&
                                         Object.entries(item.customization).map(([key, val]) => {
-                                            console.log('debug-custom', key, val);
-                                            return
-                                                <div className="item__customization" key={key}>
-                                                    <p className='custom__key'>{key}: </p>
-                                                    <p className='custom__value'>{val as string}</p>
-                                                </div>;
+                                            return;
+                                            <div className="item__customization" key={key}>
+                                                <p className="custom__key">{key}: </p>
+                                                <p className="custom__value">{val as string}</p>
+                                            </div>;
                                         })}
                                     <div className="cart-controls">
                                         <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>
-                                            -
+                                          -
                                         </button>
                                         <span>{item.amount}</span>
                                         <button onClick={() => handleChangeAmount({ dishId: item.id, amount: 1 })}>
@@ -115,13 +125,90 @@ const ClientCartPage: React.FC = () => {
                             </li>
                         ))}
                     </ul>
+                    <h4>Lunch</h4>
+                    <ul className="cart-list">
+                        {getLunchCard().map((item: any) => (
+                          <li key={item.id} className="cart-item">
+                                <img src={item.image} alt={item.name} className="cart-image" />
+                                <div className="cart-info">
+                                    <h3>{item.name}</h3>
+                                    <p>Base Price: {item.price}</p>
+                                    <p>Customization Price: ${calculateCustomizationPrice(item).toFixed(2)}</p>
+                                    <p>Total Price: ${calculateFinalPrice(item).toFixed(2)}</p>
+                                    {item.customization &&
+                                        Object.entries(item.customization).map(([key, val]) => {
+                                        return;
+                                        <div className="item__customization" key={key}>
+                                            <p className="custom__key">{key}: </p>
+                                            <p className="custom__value">{val as string}</p>
+                                        </div>;
+                                    })}
+                                    <div className="cart-controls">
+                                        <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>
+                                          -
+                                        </button>
+                                        <span>{item.amount}</span>
+                                        <button onClick={() => handleChangeAmount({ dishId: item.id, amount: 1 })}>
+                                            +
+                                        </button>
+                                        <button
+                                          onClick={() => handleRemoveFromCart({ dishId: item.id })}
+                                          className="remove-button"
+                                        >
+                                            Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <h4>Dinner</h4>
+                    <ul className="cart-list">
+                        {getDinnerCard().map((item: any) => (
+                          <li key={item.id} className="cart-item">
+                              <img src={item.image} alt={item.name} className="cart-image" />
+                              <div className="cart-info">
+                                  <h3>{item.name}</h3>
+                                  <p>Base Price: {item.price}</p>
+                                  <p>Customization Price: ${calculateCustomizationPrice(item).toFixed(2)}</p>
+                                  <p>Total Price: ${calculateFinalPrice(item).toFixed(2)}</p>
+                                  {item.customization &&
+                                    Object.entries(item.customization).map(([key, val]) => {
+                                        return;
+                                        <div className="item__customization" key={key}>
+                                            <p className="custom__key">{key}: </p>
+                                            <p className="custom__value">{val as string}</p>
+                                        </div>;
+                                    })}
+                                  <div className="cart-controls">
+                                      <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>
+                                          -
+                                      </button>
+                                      <span>{item.amount}</span>
+                                      <button onClick={() => handleChangeAmount({ dishId: item.id, amount: 1 })}>
+                                          +
+                                      </button>
+                                      <button
+                                        onClick={() => handleRemoveFromCart({ dishId: item.id })}
+                                        className="remove-button"
+                                      >
+                                          Remove
+                                      </button>
+                                  </div>
+                              </div>
+                          </li>
+                        ))}
+                    </ul>
+
+
                     <div className="order-summary">
                         <h3>Order Summary</h3>
                         <p>Total: ${calculateTotal()}</p>
                         <p>Total Calories: {calculateTotalCalories()} kcal</p>
                     </div>
                     <DeliverySecton />
-                    <button className="checkout-button" onClick={() => { }}>
+                    <button className="checkout-button" onClick={() => {}}>
                         Checkout
                     </button>
                 </>
