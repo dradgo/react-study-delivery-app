@@ -5,8 +5,9 @@ type Props = {
         total: string;
         status: string;
     };
+    handleViewOrder: (orderId: string) => void;
 };
-export const Order = ({ order }: Props) => {
+export const Order = ({ order, handleViewOrder }: Props) => {
     return (
         <div>
             <strong>{order.restaurant}</strong>
@@ -15,6 +16,7 @@ export const Order = ({ order }: Props) => {
                 Status:{' '}
                 <span className={`status ${order.status.toLowerCase()}`}>{order.status}</span>
             </p>
+            <button onClick={() => handleViewOrder(order.id.toString())}>View Order</button>
         </div>
     );
 };
