@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Wrapper } from 'src/components/wrapper/wrapper';
 import './styles.scss';
 import Input from 'src/components/input/input';
+import { validateTime, validateTimeRange } from 'src/helpers/validation';
 
 type TimeSlot = {
     day: string;
@@ -36,23 +37,30 @@ const RESTAURANT_INFO_MOCK = {
 
 const DeliverySettings: React.FC = () => {
     const [workingHours, setWorkingHours] = useState<TimeSlot[]>(WORKING_HOURS_MOCK);
-
     const [restaurantInfo, setRestaurantInfo] = useState<RestaurantInfo>(RESTAURANT_INFO_MOCK);
+    const [timeError, setTimeError] = useState<string | null>(null);
 
 
     const handleTimeChange = (day: string, field: 'open' | 'close', value: string) => {
-        setWorkingHours(prev =>
-            prev.map(slot =>
-                slot.day === day ? { ...slot, [field]: value } : slot
-            )
+        const currentSlot = workingHours.find((slot) => slot.day === day);
+        if (!currentSlot) return;
+
+        const newOpen = field === 'open' ? value : currentSlot.open;
+        const newClose = field === 'close' ? value : currentSlot.close;
+
+        if (!validateTimeRange(newOpen, newClose)) {
+            setTimeError('Время открытия должно быть раньше времени закрытия');
+            return;
+        }
+        setTimeError(null);
+        setWorkingHours((prev) =>
+            prev.map((slot) => (slot.day === day ? { ...slot, [field]: value } : slot))
         );
     };
 
     const toggleHoliday = (day: string) => {
-        setWorkingHours(prev =>
-            prev.map(slot =>
-                slot.day === day ? { ...slot, isHoliday: !slot.isHoliday } : slot
-            )
+        setWorkingHours((prev) =>
+            prev.map((slot) => (slot.day === day ? { ...slot, isHoliday: !slot.isHoliday } : slot))
         );
     };
 
@@ -139,6 +147,7 @@ const DeliverySettings: React.FC = () => {
                     </section>
                     <section className="restaurant-profile__section">
                         <h2>График работы</h2>
+                        {timeError && <div className="restaurant-profile__error">{timeError}</div>}
                         <div className="restaurant-profile__schedule">
                             {workingHours.map((slot) => (
                                 <div key={slot.day} className="restaurant-profile__time-slot">

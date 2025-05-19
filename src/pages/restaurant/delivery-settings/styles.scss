@@ -32,6 +32,11 @@
         gap: 20px;
     }
 
+    &__error {
+        color: #ff4d4f;
+        margin-bottom: 16px;
+        font-size: 14px;
+    }
 
     &__schedule {
         display: grid;
@@ -63,10 +68,6 @@
         display: flex;
         align-items: center;
         gap: 12px;
-
-
-
-
     }
 
     &__calendar {
