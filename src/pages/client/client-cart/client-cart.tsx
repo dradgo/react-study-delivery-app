@@ -77,6 +77,21 @@ const ClientCartPage: React.FC = () => {
             return total + itemCalories * item.amount;
         }, 0);
     };
+    const calculateTotalNutrients = () => {
+        return cart.reduce(
+            (total, item) => {
+                const fat = parseInt(item.nutrition.fat) || 0;
+                const sugar = parseInt(item.nutrition.sugar) || 0;
+                const protein = parseInt(item.nutrition.protein) || 0;
+                return {
+                    fat: total.fat + fat * item.amount,
+                    sugar: total.sugar + sugar * item.amount,
+                    protein: total.protein + protein * item.amount,
+                };
+            },
+            { fat: 0, sugar: 0, protein: 0 }
+        );
+    };
     const totalPrice = cart.reduce(
         (total: number, item: any) => total + Number(item.price) * item.amount,
         0
@@ -118,6 +133,12 @@ const ClientCartPage: React.FC = () => {
                         <h3>Order Summary</h3>
                         <p>Total: ${calculateTotal()}</p>
                         <p>Total Calories: {calculateTotalCalories()} kcal</p>
+                        <div className="total-nutrients">
+                            <p>Total Nutrients:</p>
+                            <p>Fat: {calculateTotalNutrients().fat}g</p>
+                            <p>Sugar: {calculateTotalNutrients().sugar}g</p>
+                            <p>Protein: {calculateTotalNutrients().protein}g</p>
+                        </div>
                     </div>
                     <DeliverySecton />
                     <button className="checkout-button" onClick={() => {}}>
