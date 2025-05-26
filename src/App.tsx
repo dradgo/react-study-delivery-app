@@ -23,7 +23,7 @@ import AdminDashboard from './pages/admin/admin-dashboard';
 import Restaurants from './pages/admin/restaurants/restaurants';
 import { Users } from './pages/admin/users/users';
 import DeliverySettings from './pages/restaurant/delivery-settings/delivery-settings';
-import ClientOrderDetail from "src/pages/client/client-order-detail";
+import ClientOrderDetail from 'src/pages/client/client-order-detail';
 
 function App() {
     return (
@@ -35,7 +35,10 @@ function App() {
                         <Route path={INTERNAL_ROUTES.general} element={<WelcomePage />} />
                         <Route path={INTERNAL_ROUTES.login} element={<LoginPage />} />
                         <Route path={INTERNAL_ROUTES.clientOrders} element={<ClientOrders />} />
-                        <Route path={INTERNAL_ROUTES.clientOrderDetail} element={<ClientOrderDetail />} />
+                        <Route
+                            path={INTERNAL_ROUTES.clientOrderDetail}
+                            element={<ClientOrderDetail />}
+                        />
                         <Route path={INTERNAL_ROUTES.courierOrders} element={<CourierOrders />} />
                         <Route
                             path={INTERNAL_ROUTES.courierProfile}
@@ -73,7 +76,10 @@ function App() {
                             element={<Restaurants />}
                         />
                         <Route path={`${INTERNAL_ROUTES.adminUsers}`} element={<Users />} />
-                        <Route path={`${INTERNAL_ROUTES.restProfile}`} element={<DeliverySettings />} />
+                        <Route
+                            path={`${INTERNAL_ROUTES.restProfile}`}
+                            element={<DeliverySettings />}
+                        />
                     </Routes>
                 </main>
                 <Footer />

@@ -40,7 +40,6 @@ const DeliverySettings: React.FC = () => {
     const [restaurantInfo, setRestaurantInfo] = useState<RestaurantInfo>(RESTAURANT_INFO_MOCK);
     const [timeError, setTimeError] = useState<string | null>(null);
 
-
     const handleTimeChange = (day: string, field: 'open' | 'close', value: string) => {
         const currentSlot = workingHours.find((slot) => slot.day === day);
         if (!currentSlot) return;
@@ -65,7 +64,7 @@ const DeliverySettings: React.FC = () => {
     };
 
     const handleInfoChange = (field: keyof RestaurantInfo, value: string) => {
-        setRestaurantInfo(prev => ({ ...prev, [field]: value }));
+        setRestaurantInfo((prev) => ({ ...prev, [field]: value }));
     };
 
     return (
@@ -163,14 +162,18 @@ const DeliverySettings: React.FC = () => {
                                         <Input
                                             type="time"
                                             value={slot.open}
-                                            onChange={(e) => handleTimeChange(slot.day, 'open', e.target.value)}
+                                            onChange={(e) =>
+                                                handleTimeChange(slot.day, 'open', e.target.value)
+                                            }
                                             disabled={slot.isHoliday}
                                         />
                                         <span>—</span>
                                         <Input
                                             type="time"
                                             value={slot.close}
-                                            onChange={(e) => handleTimeChange(slot.day, 'close', e.target.value)}
+                                            onChange={(e) =>
+                                                handleTimeChange(slot.day, 'close', e.target.value)
+                                            }
                                             disabled={slot.isHoliday}
                                         />
                                     </div>
@@ -178,8 +181,6 @@ const DeliverySettings: React.FC = () => {
                             ))}
                         </div>
                     </section>
-
-
                 </div>
             </div>
         </Wrapper>

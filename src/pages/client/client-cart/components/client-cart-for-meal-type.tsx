@@ -41,19 +41,27 @@ const DinnerCartList: React.FC<DinnerCartListProps> = ({
                                         </div>
                                     ))}
                             <div className="cart-controls">
-                                <button onClick={() => handleChangeAmount({ dishId: item.id, amount: -1 })}>
-                                  -
+                                <button
+                                    onClick={() =>
+                                        handleChangeAmount({ dishId: item.id, amount: -1 })
+                                    }
+                                >
+                                    -
                                 </button>
                                 <span>{item.amount}</span>
-                                  <button onClick={() => handleChangeAmount({ dishId: item.id, amount: 1 })}>
+                                <button
+                                    onClick={() =>
+                                        handleChangeAmount({ dishId: item.id, amount: 1 })
+                                    }
+                                >
                                     +
-                                  </button>
-                                  <button
+                                </button>
+                                <button
                                     onClick={() => handleRemoveFromCart({ dishId: item.id })}
                                     className="remove-button"
-                                  >
+                                >
                                     Remove
-                                  </button>
+                                </button>
                             </div>
                         </div>
                     </li>

@@ -7,7 +7,6 @@ import { CustomizationDialog } from './client-restaraunt-dishes/customization-di
 import { dishesMock } from '../../mocks/dishes';
 import { MenuItem } from '../../types/menu';
 
-
 const RestaurantDishesPage: React.FC = () => {
     const { restaurantName } = useParams();
     const { cart, setCart } = useUser();

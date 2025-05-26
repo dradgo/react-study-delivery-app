@@ -1,11 +1,11 @@
-import React from "react";
-import { useUser } from "../../../context/user-context";
-import "./client-cart.scss";
-import { Wrapper } from "../../../components/wrapper/wrapper";
-import { DeliverySecton } from "./components/delivery-section";
-import { CartItem } from "src/types/types";
-import { CustomizationOption } from "src/types/menu";
-import DinnerCartList from "src/pages/client/client-cart/components/client-cart-for-meal-type";
+import React from 'react';
+import { useUser } from '../../../context/user-context';
+import './client-cart.scss';
+import { Wrapper } from '../../../components/wrapper/wrapper';
+import { DeliverySecton } from './components/delivery-section';
+import { CartItem } from 'src/types/types';
+import { CustomizationOption } from 'src/types/menu';
+import DinnerCartList from 'src/pages/client/client-cart/components/client-cart-for-meal-type';
 
 const ClientCartPage: React.FC = () => {
     const { cart, setCart } = useUser();
@@ -114,7 +114,6 @@ const ClientCartPage: React.FC = () => {
                         handleRemoveFromCart={handleRemoveFromCart}
                     />
 
-
                     <div className="order-summary">
                         <h3>Order Summary</h3>
                         <p>Total: ${calculateTotal()}</p>
@@ -125,9 +124,8 @@ const ClientCartPage: React.FC = () => {
                         Checkout
                     </button>
                 </>
-            )
-            }
-        </Wrapper >
+            )}
+        </Wrapper>
     );
 };
 
