@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useUser } from '../../../context/user-context';
 import { Wrapper } from '../../../components/wrapper/wrapper';
+import ChangePasswordDialog from './change-password-dialog';
+import './client-profile.scss';
 
 // Базовый компонент профиля пользователя
 export const ClientProfile: React.FC = () => {
     const client = useUser();
+    const [dialogOpen, setDialogOpen] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
 
-    // Проверяем, загружены ли данные о пользователе
     if (!client) {
         return <div>Загрузка...</div>;
     }
+
+    const handleSuccess = () => {
+        setSuccessMessage('Пароль успешно обновлен');
+        setTimeout(() => setSuccessMessage(''), 3000);
+    };
 
     return (
         <Wrapper>
@@ -24,8 +32,14 @@ export const ClientProfile: React.FC = () => {
                 <p>
                     <strong>Email:</strong> {'Не указан'}
                 </p>
-                {/* Добавьте другие поля, если они есть в контексте */}
             </div>
+            <button onClick={() => setDialogOpen(true)}>Изменить пароль</button>
+            {successMessage && <div className="change-password-success">{successMessage}</div>}
+            <ChangePasswordDialog
+                open={dialogOpen}
+                onClose={() => setDialogOpen(false)}
+                onSuccess={handleSuccess}
+            />
         </Wrapper>
     );
 };
