@@ -1,22 +1,25 @@
 import React from 'react';
 
-interface DinnerCartListProps {
-    mealType: string;
-    dinnerItems: any[];
+interface CartUtils {
     calculateCustomizationPrice: (item: any) => number;
     calculateFinalPrice: (item: any) => number;
     handleChangeAmount: ({ dishId, amount }: { dishId: any; amount: any }) => void;
     handleRemoveFromCart: ({ dishId }: { dishId: any }) => void;
 }
 
-const DinnerCartList: React.FC<DinnerCartListProps> = ({
-    mealType,
-    dinnerItems,
-    calculateCustomizationPrice,
-    calculateFinalPrice,
-    handleChangeAmount,
-    handleRemoveFromCart,
-}) => {
+interface DinnerCartListProps {
+    mealType: string;
+    dinnerItems: any[];
+    cartUtils: CartUtils;
+}
+
+const DinnerCartList: React.FC<DinnerCartListProps> = ({ mealType, dinnerItems, cartUtils }) => {
+    const {
+        calculateCustomizationPrice,
+        calculateFinalPrice,
+        handleChangeAmount,
+        handleRemoveFromCart,
+    } = cartUtils;
     return (
         <>
             <h4>{mealType}</h4>

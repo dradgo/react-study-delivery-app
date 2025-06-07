@@ -106,27 +106,33 @@ const ClientCartPage: React.FC = () => {
                     <DinnerCartList
                         mealType="Breakfast"
                         dinnerItems={getBreakfastCard()}
-                        calculateCustomizationPrice={calculateCustomizationPrice}
-                        calculateFinalPrice={calculateFinalPrice}
-                        handleChangeAmount={handleChangeAmount}
-                        handleRemoveFromCart={handleRemoveFromCart}
+                        cartUtils={{
+                            calculateCustomizationPrice,
+                            calculateFinalPrice,
+                            handleChangeAmount,
+                            handleRemoveFromCart,
+                        }}
                     />
                     <DinnerCartList
                         mealType="Lunch"
                         dinnerItems={getLunchCard()}
-                        calculateCustomizationPrice={calculateCustomizationPrice}
-                        calculateFinalPrice={calculateFinalPrice}
-                        handleChangeAmount={handleChangeAmount}
-                        handleRemoveFromCart={handleRemoveFromCart}
+                        cartUtils={{
+                            calculateCustomizationPrice,
+                            calculateFinalPrice,
+                            handleChangeAmount,
+                            handleRemoveFromCart,
+                        }}
                     />
 
                     <DinnerCartList
                         mealType="Dinner"
                         dinnerItems={getDinnerCard()}
-                        calculateCustomizationPrice={calculateCustomizationPrice}
-                        calculateFinalPrice={calculateFinalPrice}
-                        handleChangeAmount={handleChangeAmount}
-                        handleRemoveFromCart={handleRemoveFromCart}
+                        cartUtils={{
+                            calculateCustomizationPrice,
+                            calculateFinalPrice,
+                            handleChangeAmount,
+                            handleRemoveFromCart,
+                        }}
                     />
 
                     <div className="order-summary">

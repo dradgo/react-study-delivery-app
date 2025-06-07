@@ -1,6 +1,32 @@
 import React, { useState } from 'react';
 import './register-modal.scss';
 
+const fieldsConfig: Record<
+    string,
+    { name: string; placeholder: string; type?: string; isTextarea?: boolean }[]
+> = {
+    client: [
+        { name: 'firstName', placeholder: 'First Name' },
+        { name: 'lastName', placeholder: 'Last Name' },
+        { name: 'phone', placeholder: 'Phone' },
+        { name: 'email', placeholder: 'Email', type: 'email' },
+    ],
+    courier: [
+        { name: 'firstName', placeholder: 'First Name' },
+        { name: 'lastName', placeholder: 'Last Name' },
+        { name: 'phone', placeholder: 'Phone' },
+        { name: 'email', placeholder: 'Email', type: 'email' },
+        { name: 'socialId', placeholder: 'Social ID' },
+    ],
+    restaurant: [
+        { name: 'name', placeholder: 'Restaurant Name' },
+        { name: 'description', placeholder: 'Description', isTextarea: true },
+        { name: 'phone', placeholder: 'Phone' },
+        { name: 'email', placeholder: 'Email', type: 'email' },
+        { name: 'address', placeholder: 'Address' },
+    ],
+};
+
 const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [userType, setUserType] = useState('');
     const [formData, setFormData] = useState({
@@ -42,114 +68,25 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit}>
-                        {userType === 'client' && (
-                            <>
-                                <input
-                                    type="text"
-                                    name="firstName"
-                                    placeholder="First Name"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="lastName"
-                                    placeholder="Last Name"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    placeholder="Phone"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </>
-                        )}
-                        {userType === 'courier' && (
-                            <>
-                                <input
-                                    type="text"
-                                    name="firstName"
-                                    placeholder="First Name"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="lastName"
-                                    placeholder="Last Name"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    placeholder="Phone"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="socialId"
-                                    placeholder="Social ID"
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </>
-                        )}
-                        {userType === 'restaurant' && (
-                            <>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Restaurant Name"
-                                    onChange={handleChange}
-                                    required
-                                />
+                        {fieldsConfig[userType]?.map((field) =>
+                            field.isTextarea ? (
                                 <textarea
-                                    name="description"
-                                    placeholder="Description"
+                                    key={field.name}
+                                    name={field.name}
+                                    placeholder={field.placeholder}
                                     onChange={handleChange}
                                     required
                                 ></textarea>
+                            ) : (
                                 <input
-                                    type="text"
-                                    name="phone"
-                                    placeholder="Phone"
+                                    key={field.name}
+                                    type={field.type || 'text'}
+                                    name={field.name}
+                                    placeholder={field.placeholder}
                                     onChange={handleChange}
                                     required
                                 />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    name="address"
-                                    placeholder="Address"
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </>
+                            )
                         )}
                         <button type="submit">Register</button>
                         <button type="button" onClick={onClose}>

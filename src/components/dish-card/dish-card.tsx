@@ -1,21 +1,20 @@
 import { MenuItem } from '../../types/menu';
 import { CartItem } from '../../types/types';
 
-interface DishCardProps {
-    dish: MenuItem;
-    cartItem?: CartItem;
+interface DishCardActions {
     handleAddToCart: (params: { dish: MenuItem }) => void;
     handleChangeAmount: (params: { dishId: number; amount: number }) => void;
     handleRemoveFromCart: (params: { dishId: number }) => void;
 }
 
-const DishCard: React.FC<DishCardProps> = ({
-    dish,
-    cartItem,
-    handleAddToCart,
-    handleChangeAmount,
-    handleRemoveFromCart,
-}) => {
+interface DishCardProps {
+    dish: MenuItem;
+    cartItem?: CartItem;
+    actions: DishCardActions;
+}
+
+const DishCard: React.FC<DishCardProps> = ({ dish, cartItem, actions }) => {
+    const { handleAddToCart, handleChangeAmount, handleRemoveFromCart } = actions;
     return (
         <div className="dish-card">
             <img src={dish.image} alt={dish.name} className="dish-image" />
