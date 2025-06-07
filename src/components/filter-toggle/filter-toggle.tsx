@@ -2,10 +2,7 @@ import React from 'react';
 import './filter-toggle.scss';
 import { FilterOption } from 'src/types/types';
 
-type FilterToggleProps = {
-    options: FilterOption[];
-    selected: string | number;
-    onSelect: (value: any) => void;
+type FilterToggleConfig = {
     size?: 'small' | 'medium' | 'large';
     variant?: 'primary' | 'secondary' | 'outline';
     disabled?: boolean;
@@ -15,18 +12,28 @@ type FilterToggleProps = {
     label?: string;
 };
 
+type FilterToggleProps = {
+    options: FilterOption[];
+    selected: string | number;
+    onSelect: (value: any) => void;
+    config?: FilterToggleConfig;
+};
+
 export const FilterToggle: React.FC<FilterToggleProps> = ({
     options,
     selected,
     onSelect,
-    size = 'medium',
-    variant = 'primary',
-    disabled = false,
-    className = '',
-    showDivider = false,
-    alignment = 'start',
-    label,
+    config = {},
 }) => {
+    const {
+        size = 'medium',
+        variant = 'primary',
+        disabled = false,
+        className = '',
+        showDivider = false,
+        alignment = 'start',
+        label,
+    } = config;
     return (
         <div className="filter-toggle-wrapper">
             {label && <span className="filter-toggle__label">{label}</span>}

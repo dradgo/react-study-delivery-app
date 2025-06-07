@@ -12,8 +12,10 @@ const RestaurantDishesPage: React.FC = () => {
     const { cart, setCart } = useUser();
     const [selectedItem, setSelectedItem] = useState<any | null>(null);
 
-    const [nameFilter, setNameFilter] = useState('');
-    const [caloriesFilter, setCaloriesFilter] = useState<number | ''>('');
+    const [filters, setFilters] = useState<{ name: string; calories: number | '' }>({
+        name: '',
+        calories: '',
+    });
 
     const handleOpenDialog = (item: any) => {
         console.log('debug-1', item);
@@ -45,9 +47,9 @@ const RestaurantDishesPage: React.FC = () => {
     };
     // Filtering logic
     const filteredDishes = dishesMock.filter((dish) => {
-        const matchesName = dish.name.toLowerCase().includes(nameFilter.toLowerCase());
+        const matchesName = dish.name.toLowerCase().includes(filters.name.toLowerCase());
         const matchesCalories =
-            caloriesFilter === '' || parseInt(dish.nutrition.calories) <= caloriesFilter;
+            filters.calories === '' || parseInt(dish.nutrition.calories) <= filters.calories;
         return dish.restaurantName === restaurantName && matchesName && matchesCalories;
     });
 
@@ -59,14 +61,19 @@ const RestaurantDishesPage: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Filter by name"
-                    value={nameFilter}
-                    onChange={(e) => setNameFilter(e.target.value)}
+                    value={filters.name}
+                    onChange={(e) => setFilters((prev) => ({ ...prev, name: e.target.value }))}
                 />
                 <input
                     type="number"
                     placeholder="Max calories"
-                    value={caloriesFilter}
-                    onChange={(e) => setCaloriesFilter(Number(e.target.value) || '')}
+                    value={filters.calories}
+                    onChange={(e) =>
+                        setFilters((prev) => ({
+                            ...prev,
+                            calories: Number(e.target.value) || '',
+                        }))
+                    }
                 />
             </div>
             <ul className="dishes-list">

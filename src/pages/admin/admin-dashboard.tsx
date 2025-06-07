@@ -73,16 +73,14 @@ const AdminDashboard: React.FC = () => {
                         options={timeFilterOptions}
                         selected={timeRange}
                         onSelect={setTimeRange}
-                        label="Период"
-                        variant="primary"
+                        config={{ label: 'Период', variant: 'primary' }}
                     />
 
                     <FilterToggle
                         options={statusFilterOptions}
                         selected={selectedStatus}
                         onSelect={setSelectedStatus}
-                        label="Статус заказа"
-                        variant="secondary"
+                        config={{ label: 'Статус заказа', variant: 'secondary' }}
                     />
 
                     <RestaurantFilter
