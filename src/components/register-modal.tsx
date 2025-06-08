@@ -48,7 +48,6 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Registering user:', userType, formData);
         onClose();
     };
 

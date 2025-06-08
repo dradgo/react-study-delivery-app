@@ -36,8 +36,6 @@ const ClientCartPage: React.FC = () => {
     };
     const calculateFinalPrice = (item: CartItem) => {
         const basePrice = Number(item.price.substring(1)) || 0;
-        console.log('basePrice:', basePrice);
-        console.log('item:', item);
         var customizationExtra = 0;
         const customization = item.customization || {};
         item.customizations?.forEach((item: { name: string; options: CustomizationOption[] }) => {
@@ -51,7 +49,6 @@ const ClientCartPage: React.FC = () => {
                 }
             }
         });
-        console.log('extraPrice:' + customizationExtra);
         return basePrice + customizationExtra;
     };
     const handleRemoveFromCart = ({ dishId }: { dishId: any }) => {
@@ -72,7 +69,6 @@ const ClientCartPage: React.FC = () => {
     };
     const calculateTotalCalories = () => {
         return cart.reduce((total, item) => {
-            console.log('item:', item);
             const itemCalories = parseInt(item.nutrition.calories) || 0;
             return total + itemCalories * item.amount;
         }, 0);

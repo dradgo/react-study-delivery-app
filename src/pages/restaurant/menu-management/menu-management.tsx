@@ -34,7 +34,6 @@ const MenuManagement: React.FC = () => {
     const deleteCategory = (category: string) => {
         setCategories(categories.filter((cat) => cat !== category));
     };
-    console.log(menuItems);
 
     return (
         <Wrapper>
