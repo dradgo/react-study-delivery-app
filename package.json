@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://bloodntears.github.io/react-study-delivery-app",
+  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -55,8 +56,8 @@
     "build:github": "GITHUB_PAGES=true webpack --config webpack.config.js --mode production",
     "predeploy": "npm run build:github",
     "deploy": "gh-pages -d dist",
-    "lint": "eslint --config eslint.config.js \"./src/**/*.{ts,tsx}\" --quiet",
-    "lint:fix": "eslint --config eslint.config.js './src/**/*.{ts,tsx}' --fix",
+    "lint": "eslint --config eslint.config.mjs \"./src/**/*.{ts,tsx}\" --quiet",
+    "lint:fix": "eslint --config eslint.config.mjs './src/**/*.{ts,tsx}' --fix",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
     "test": "react-scripts test",
