@@ -13,18 +13,15 @@ export const CustomizationDialog: React.FC<CustomizationDialogProps> = React.mem
         const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
 
         const handleOptionChange = (name: string, value: string) => {
-            console.log('Selected Option:', name, value);
             setSelectedOptions((prev) => ({ ...prev, [name]: value }));
         };
 
         const handleAddToCart = () => {
-            console.log('Selected Options - dialog:', selectedOptions);
             onAddToCart(selectedOptions);
             onClose();
         };
 
         if (!open) return null;
-        console.log('Selected Options:', customizations);
 
         return (
             <div className="dialog-overlay">
