@@ -1,10 +1,15 @@
-module.exports = [
+// eslint.config.js
+
+import prettierPlugin from "eslint-plugin-prettier";
+
+export default [
   {
-    files: ["src/**/*.{js,jsx,ts,tsx}"],
-    extends: ["react-app", "react-app/jest", "plugin:prettier/recommended"],
-    plugins: ["prettier"],
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      prettier: prettierPlugin,
+    },
     rules: {
       "prettier/prettier": ["error", {}, { usePrettierrc: true }]
-    }
-  }
+    },
+  },
 ];
