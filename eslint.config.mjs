@@ -1,5 +1,6 @@
 // eslint.config.mjs
 
+import path from "path";
 import prettierPlugin from "eslint-plugin-prettier";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
@@ -11,7 +12,7 @@ export default [
       parser: tsParser,
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: new URL('.', import.meta.url).pathname,
+        tsconfigRootDir: path.resolve('.'),
       },
     },
     plugins: {
@@ -19,7 +20,9 @@ export default [
       '@typescript-eslint': tseslint,
     },
     rules: {
-      "prettier/prettier": ["error", {}, { usePrettierrc: true }]
+      "prettier/prettier": ["error", {}, { usePrettierrc: true }],
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/explicit-function-return-type": "warn",
     },
   },
 ];
