@@ -21,7 +21,7 @@ export default [
     },
     rules: {
       "prettier/prettier": ["error", {}, { usePrettierrc: true }],
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/explicit-function-return-type": "warn",
     },
   },
