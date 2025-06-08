@@ -1,6 +1,6 @@
 // eslint.config.js
 
-import prettierPlugin from "eslint-plugin-prettier";
+const prettierPlugin = require("eslint-plugin-prettier");
 
 export default [
   {
