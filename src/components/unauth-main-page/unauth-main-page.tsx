@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import RegisterModal from '../register-modal';
 
-export const UnauthMainPage = () => {
+export const UnauthMainPage = (): JSX.Element => {
     const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
     return (

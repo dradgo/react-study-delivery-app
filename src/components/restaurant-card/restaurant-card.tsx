@@ -1,4 +1,4 @@
-export const RestaurantCard = ({ restaurant }: { restaurant: any }) => {
+export const RestaurantCard = ({ restaurant }: { restaurant: any }): JSX.Element => {
     return (
         <div>
             <li key={restaurant.id} className="restaurant-item">

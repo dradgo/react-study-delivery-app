@@ -25,7 +25,7 @@ import { Users } from './pages/admin/users/users';
 import DeliverySettings from './pages/restaurant/delivery-settings/delivery-settings';
 import ClientOrderDetail from 'src/pages/client/client-order-detail';
 
-function App() {
+function App(): JSX.Element {
     return (
         <Router>
             <UserProvider>

@@ -42,11 +42,11 @@ const RegisterModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-    ) => {
+    ): void => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent): void => {
         e.preventDefault();
         onClose();
     };
