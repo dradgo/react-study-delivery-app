@@ -7,7 +7,7 @@ type Props = {
     };
     handleViewOrder: (orderId: string) => void;
 };
-export const Order = ({ order, handleViewOrder }: Props) => {
+export const Order = ({ order, handleViewOrder }: Props): JSX.Element => {
     return (
         <div>
             <strong>{order.restaurant}</strong>

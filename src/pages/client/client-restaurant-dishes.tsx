@@ -18,14 +18,11 @@ const RestaurantDishesPage: React.FC = () => {
     });
 
     const handleOpenDialog = (item: any) => {
-        console.log('debug-1', item);
         setSelectedItem(item);
     };
 
     const handleAddToCart = (selectedOptions: Record<any, any>) => {
         const { dish } = selectedItem || {};
-        console.log('Selected dish:', dish);
-        console.log('Selected options:', selectedOptions);
         const customization = selectedOptions || {};
         const mealTime = selectedOptions.mealTime || '';
         setCart((prevCart: any) => {

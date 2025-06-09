@@ -26,7 +26,7 @@ const UserContext = createContext<UserContextProviderType>({
     logout: () => {},
 });
 
-export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }): JSX.Element => {
     const [isAuth, setIsAuth] = useState(false);
     const [userType, setUserType] = useState<UsersType>(
         (localStorage.getItem('userType') as UsersType) || 'none'
@@ -34,14 +34,14 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const [cart, setCart] = useState([]);
     const navigate = useNavigate();
 
-    const login = (user: UsersType) => {
+    const login = (user: UsersType): void => {
         setUserType(user);
         localStorage.setItem('userType', user);
         setIsAuth(true);
         navigate(`${INTERNAL_ROUTES.home}/${user}`);
     };
 
-    const logout = () => {
+    const logout = (): void => {
         setIsAuth(false);
         setUserType('none');
         localStorage.removeItem('userType');

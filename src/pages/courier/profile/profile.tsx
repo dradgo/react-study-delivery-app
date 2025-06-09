@@ -24,7 +24,7 @@ interface Profile {
 }
 
 const CourierProfilePage: React.FC = () => {
-    const { userType } = useUser();
+    useUser();
     const [profile, setProfile] = useState<Profile>({
         name: 'John Doe',
         phone: '+1234567890',
