@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './users.scss';
 import { restaurantsWithImage } from 'src/mocks/restaurants';
 import { RestaurantCard } from 'src/components/restaurant-card/restaurant-card';
-import { CustomerCard } from 'src/components/сustomer-сard/сustomer-сard';
+import { CustomerCard } from 'src/components/сustomer-сard/customer-card';
 import Input from 'src/components/input/input';
 
 type Tabs = 'customers' | 'restaurants';
