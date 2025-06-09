@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { JSX, useState } from "react";
 import { Wrapper } from 'src/components/wrapper/wrapper';
 import './styles.scss';
 import Input from 'src/components/input/input';
-import { validateTime, validateTimeRange } from 'src/helpers/validation';
+import { validateTimeRange } from 'src/helpers/validation';
 
 type TimeSlot = {
     day: string;
@@ -35,7 +35,7 @@ const RESTAURANT_INFO_MOCK = {
     banner: '/path-to-banner.png',
 };
 
-const DeliverySettings: React.FC = () => {
+const DeliverySettings: React.FC = (): JSX.Element => {
     const [workingHours, setWorkingHours] = useState<TimeSlot[]>(WORKING_HOURS_MOCK);
     const [restaurantInfo, setRestaurantInfo] = useState<RestaurantInfo>(RESTAURANT_INFO_MOCK);
     const [timeError, setTimeError] = useState<string | null>(null);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from "react";
 import './customer-card.scss';
 import { Wrapper } from '../wrapper/wrapper';
 
@@ -11,7 +11,7 @@ interface Customer {
     favoriteCuisine: string;
 }
 
-export const CustomerCard = ({ customer }: { customer: Customer }) => {
+export const CustomerCard = ({ customer }: { customer: Customer }): JSX.Element => {
     return (
         <Wrapper className="customer-card">
             <h4 className="customer-name">{customer.name}</h4>

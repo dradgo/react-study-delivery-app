@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 export const RestaurantCard = ({ restaurant }: { restaurant: any }): JSX.Element => {
     return (
         <div>

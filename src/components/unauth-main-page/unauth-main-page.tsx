@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { useState } from 'react';
+import { JSX, useState } from 'react';
 import RegisterModal from '../register-modal';
 
 export const UnauthMainPage = (): JSX.Element => {

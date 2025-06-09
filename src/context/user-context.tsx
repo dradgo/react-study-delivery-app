@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, JSX } from 'react';
 import { CartItem, UsersType } from '../types/types';
 import { useNavigate } from 'react-router-dom';
 import { INTERNAL_ROUTES } from '../constants/links';
@@ -26,7 +26,9 @@ const UserContext = createContext<UserContextProviderType>({
     logout: () => {},
 });
 
-export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }): JSX.Element => {
+export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}): JSX.Element => {
     const [isAuth, setIsAuth] = useState(false);
     const [userType, setUserType] = useState<UsersType>(
         (localStorage.getItem('userType') as UsersType) || 'none'
@@ -49,11 +51,11 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
 
     useEffect(() => {
-        const handleStorageChange = () => {
+        const handleStorageChange = (): void => {
             setUserType((localStorage.getItem('userType') as UsersType) || 'none');
         };
         window.addEventListener('storage', handleStorageChange);
-        return () => window.removeEventListener('storage', handleStorageChange);
+        return (): void => window.removeEventListener('storage', handleStorageChange);
     }, []);
 
     return (
